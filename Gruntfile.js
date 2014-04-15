@@ -65,14 +65,9 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     // dot: true,
-                    cwd: '<%= app.dev %>/',
+                    cwd: '<%= app.dev %>/', // "app/" folder
                     dest: '<%= app.dist %>/',
-                    src: ['{,*/}*.{ico,png,txt,htaccess,md}', 'images/*', 'fonts/*']
-                }, {
-                    expand: true,
-                    cwd: 'frameworks/bootstrap/dist/',
-                    dest: '<%= app.dist %>/',
-                    src: ['fonts/*']
+                    src: ['{,*/}*.{ico,png,txt,htaccess,md,markdown}', 'images/*', 'fonts/*']
                 }, {
                     expand: true,
                     // dot: true,
@@ -95,15 +90,23 @@ module.exports = function(grunt) {
                     src: ['images/*', 'fonts/*']
                 }, {
                     expand: true,
-                    cwd: 'frameworks/bootstrap/dist/',
-                    dest: '<%= app.test %>/',
-                    src: ['fonts/*']
-                }, {
-                    expand: true,
                     // dot: true,
                     cwd: '.tmp/',
                     dest: '<%= app.test %>/',
                     src: ['{,*/}*.{css,js}', 'js/*', 'css/*']
+                }]
+            },
+            bootstrap: {
+                files: [{
+                    expand: true,
+                    cwd: 'frameworks/bootstrap/dist/',
+                    dest: '<%= app.dist %>/',
+                    src: ['fonts/*']
+                }, {
+                    expand: true,
+                    cwd: 'frameworks/bootstrap/dist/',
+                    dest: '<%= app.test %>/',
+                    src: ['fonts/*']
                 }]
             },
             others: {
@@ -417,10 +420,10 @@ module.exports = function(grunt) {
     // Just split bootstrap into several css mini files
     // For the ones who would work with bootstrap CSS customisation instead of LESS
     grunt.registerTask('bootstrap', function(target) {
-        if(target === 'less') {
+        if (target === 'less') {
             // Compile LESS and the concatinate the CSS into bootstrap.css
             return grunt.task.run(['less']);
-        }else{
+        } else {
             // With no argument just run join all bootstrap individual files into one
             // Copies to "app/css" folder for later concatination with user's css
             return grunt.task.run(['concat:bootstrap']);
@@ -439,7 +442,7 @@ module.exports = function(grunt) {
     grunt.registerTask('start', [
         'jshint:gruntfile',
         'clean', // clean all the files and folders [.tmp, dist and test]
-        'jade', // IMPORTANT: Comment this if you are not using jade to write your html files 
+        'jade', // IMPORTANT: uncomment this if you are using jade to write your html files 
         // 'concat:bootstrap', // -- wrap all bootstrap folders into one, done above instead
         'dom_munger:test', //get all required files to concat, cssmin and uglify
         'concat:appcss',
@@ -448,7 +451,10 @@ module.exports = function(grunt) {
         'jshint:appjs',
         'concat:appjs',
         'uglify',
-        'copy',
+        'copy:test',
+        'copy:dist',
+        'copy:bootstrap', // uncomment if you are using bootstrap, thus copy it's glyphicon fonts
+        'copy:others',
         'dom_munger:dist',
         'htmlmin'
     ]);
