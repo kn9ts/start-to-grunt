@@ -1,0 +1,146 @@
+//
+    /**
+     * Created by Eugene Mutai
+     * Email: eugenemutai@gmail.com
+     * Date: 06/04/14 (Updated on 07/04/14)
+     * Time: 12:19 PM
+     * Description: Simple HTML5 application template to get you started.
+     */
+
+doctype html
+html(lang="en")
+    head
+        title Knightstart -- Sample Page
+        
+        // Site Necessities 
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes')
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+        meta(name='description', content='')
+        meta(name='keywords', content='')
+        meta(http-equiv='cleartype', content='on')
+        
+        //- Favicons 
+        //- Place favicon.ico and apple-touch-icon.png in the root directory
+        //- link(rel="shortcut icon" type="image/png" href="")
+        //- link(rel="shortcut icon" type="image/x-icon" href="")
+        
+        // Twitter Bootstrap 
+        //- Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.
+        //- Bootstrap easily and efficiently scales your project with one code base, from phones to tablets to desktops.
+        // http://getbootstrap.com/ 
+        link(rel='stylesheet', href='frameworks/bootstrap/dist/css/bootstrap.css')
+        //- link(rel="stylesheet" href="frameworks/bootstrap/dist/css/bootstrap-theme.css") 
+        
+        // Your stylesheets 
+        link(rel='stylesheet', href='app/css/application.css')
+
+    body
+        // if lt IE 10
+            p.browsehappy
+                | You are using an
+            strong outdated
+                | browser. Please
+            a(href='http://browsehappy.com/') upgrade your browser
+                | to improve your experience.
+
+        .row
+            .col-sm-offset-3.col-sm-6.col-xs-12
+                .container-fluid
+                    .header
+                        .row
+                            .col-xs-12.col-sm-5.text-center
+                                h3.text-muted KnightStart
+                            .col-xs-12.col-sm-7
+                                ul.nav.nav-pills.small-padding
+                                    li.active: a(href='#') Home
+                                    li: a(href='#') About
+                                    li: a(href='#') Contact
+                    .jumbotron.text-center
+                        h1 'Ayyee, 'Ayyee!
+                        p.lead Always a pleasure scaffolding your apps.
+                        p
+                            a.btn.btn-lg.btn-default(href='#') Hapo Sawaa! 
+                                span.glyphicon.glyphicon-ok
+                    
+                    .row.marketing
+                        .col-lg-12
+                            h2 Bootstrap
+                                p.lead.text-muted.bg-warning.small-padding.curves
+                                    | Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.
+                            
+                            //- h2 Modernizr
+                                p.lead.text-muted.bg-warning.small-padding.curves Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
+                            
+                            h2 GruntJS: small the JavaScript Task Runner
+                                p.lead.text-muted.bg-warning.small-padding.curves
+                                    | Why use a task runner? In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes.
+                    
+                    .footer.text-center
+                        h4
+                            p.bg-success.text-center.text-muted.small-padding
+                                | © 2014, with&nbsp;
+                                span.glyphicon.glyphicon-heart 
+                                | &nbsp;from the Eugene Mutai -- http://knightslab.com
+                
+
+        // App's dependencies(libraries) and business logics
+        application-engine(rel="All the application's JS files fall here")
+            // Base engine, for Phonegap app, uncomment this if you are using phonegap
+            // script(type="text/javascript" src="cordova.js")
+
+            // jQuery library
+            script(type="text/javascript" src="js/libraries/jquery/jquery.min.js")
+
+            // Angularjs MVC, MVVM framework 
+            script(type="text/javascript" src="./framework/angular/angular.min.js")
+            script(type="text/javascript" src="./framework/angular/angular-resource.min.js")
+
+            //- QuoJS, touch supporting library 
+            //- script(type="text/javascript" src="js/libraries/quojs/quo.debug.js")
+            //- script(type="text/javascript" src="js/libraries/quojs/quo.js")
+
+            // For cookies and touch support 
+            script(type="text/javascript" src="js/plugins/jquery.cookie.js")
+            script(type="text/javascript" src="js/plugins/jquery.hammer.min.js")
+
+            // for scrolling 
+            link(rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css")
+            script(type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.min.js")
+
+            //- Knockout MVVM framework 
+            //- script(type="text/javascript" src="js/libraries/knockout-3.0.0.js")
+            //- script(type="text/javascript" src="js/plugins/knockout.validation.js")
+
+            // Time management 
+            script(type="text/javascript" src="js/libraries/momentjs/moment.min.js")
+
+            // Your app functions script 
+            script(type="text/javascript" src="app/js/application.js")
+            script.
+                //on document ready, as soon as it begins to load
+                $(function() {
+                    // Lungo.init();
+                    $(window).on("load", app.initialize);
+                });
+
+                // Google Analytics: change UA-XXXXX-X to be your site's ID. 
+                (function(b, o, i, l, e, r) {
+                    b.GoogleAnalyticsObject = l;
+                    b[l] || (b[l] =
+                    function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                    });
+                    b[l].l = +new Date;
+                    e = o.createElement(i);
+                    r = o.getElementsByTagName(i)[0];
+                    e.src = '//www.google-analytics.com/analytics.js';
+                    r.parentNode.insertBefore(e, r)
+                }(window, document, 'script', 'ga'));
+                ga('create', 'UA-XXXXX-X');
+                ga('send', 'pageview');
+            
+            //- Get all files to be used with gruntjs 
+            //- script(src='grunt/gruntconfig_assets.js')
+            //- script(src='http://localhost:35729/livereload.js')

@@ -1,0 +1,20 @@
+/**!
+ * See http://www.jshint.com/docs/options/ for all available options.
+ */
+{
+    "curly": false,
+    "eqeqeq": false,
+    "immed": true,
+    "latedef": false,
+    "newcap": true,
+    "noarg": false,
+    "sub": true,
+    "undef": false,
+    "unused": false,
+    "boss": true,
+    "eqnull": false,
+    "node": true,
+    "jquery": true,
+    "asi": true,
+    "browser": true
+}
