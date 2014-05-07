@@ -285,7 +285,8 @@ module.exports = function(grunt) {
                 options: {
                     collapseBooleanAttributes: true,
                     collapseWhitespace: true,
-                    removeAttributeQuotes: true,
+                    removeAttributeQuotes: false,
+                    // removeComments: true,
                     removeCommentsFromCDATA: true,
                     removeEmptyAttributes: true,
                     removeOptionalTags: true,
@@ -329,9 +330,9 @@ module.exports = function(grunt) {
                 src: 'Gruntfile.js'
             },
             appjs: {
-                src: 'app/{,*/}*.js'
+                src: 'app/js/{,*/}*.js'
             },
-            afterconcat: ['Gruntfile.js', 'app/{,*/}*.js']
+            afterconcat: ['Gruntfile.js', 'app/js/{,*/}*.js']
         },
 
         // The command should start server and the should open http://localhost:1500/ in your browser.
@@ -397,7 +398,7 @@ module.exports = function(grunt) {
                 tasks: ['jade', 'dom_munger:test', 'copy:dist', 'dom_munger:dist', 'htmlmin']
             },
             gruntfile: {
-                files: ['Gruntfile.js'],
+                files: ['Gruntfile.js', '**/*.html'],
                 tasks: ['default']
             }
         }
@@ -432,7 +433,7 @@ module.exports = function(grunt) {
             return grunt.task.run(['less']);
         } else {
             // With no argument just run join all bootstrap individual files into one
-            // Copies to "app/css" folder for later concatination with user's css
+            // Copies to "app/css/" folder for later concatination with user's css
             return grunt.task.run(['concat:bootstrap']);
         }
     });
@@ -450,7 +451,7 @@ module.exports = function(grunt) {
         'jshint:gruntfile',
         'clean', // clean all the files and folders [.tmp, dist and test]
         'jade', // IMPORTANT: uncomment this if you are using jade to write your html files 
-        // 'concat:bootstrap', // -- wrap all bootstrap folders into one, done above instead
+        // 'concat:bootstrap', // -- wrap all bootstrap folders into one, being done above instead
         'dom_munger:test', //get all required files to concat, cssmin and uglify
         'concat:appcss',
         'autoprefixer',
