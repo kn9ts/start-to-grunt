@@ -479,7 +479,7 @@ module.exports = function(grunt) {
             jade: {
                 files: ['**/*.jade'],
                 // if you do not want to concatinate them replace 'copy:dist' with 'copy:test_unpackaged'
-                tasks: ['jade', 'dom_munger:test', 'copy:dist', 'dom_munger:dist', 'htmlmin']
+                tasks: ['jade', 'dom_munger:test', 'copy:test_unpackaged', 'dom_munger:dist', 'htmlmin']
             },
             gruntfile: {
                 files: ['Gruntfile.js'],
@@ -515,7 +515,7 @@ module.exports = function(grunt) {
 
     // Just split bootstrap into several css mini files
     // For the ones who would work with bootstrap CSS customisation instead of LESS
-    grunt.registerTask('bootstrap', function(target) {
+    grunt.registerTask('bs', function(target) {
         if (target === 'less') {
             // Compile LESS and the concatinate the CSS into bootstrap.css
             return grunt.task.run(['less']);
@@ -527,15 +527,15 @@ module.exports = function(grunt) {
         }
     });
     // shortcut to bootstrap compiling task
-    grunt.registerTask('bs', ['bootstrap'])
+    grunt.registerTask('bootstrap', ['bs'])
 
     // Serve the app and view changes live
     grunt.registerTask('serve', function(target) {
         if (target === 'dist') {
             // return grunt.task.run(['default', 'connect:dist:keepalive']);
-            return grunt.task.run(['distribution', 'connect:dist:keepalive']);
+            return grunt.task.run(['start', 'distribution', 'connect:dist:keepalive']);
         }
-        grunt.task.run(['test', 'connect:livereload', 'watch']);
+        grunt.task.run(['start', 'test', 'connect:livereload', 'watch']);
     });
 
     grunt.registerTask('test', [

@@ -17,7 +17,7 @@ __STOP__ WRITTING TIRESOME HTML, you do get tired opening and closing tags dont 
 KnightStart basically does the following:
 * Lint your JS - *checks for any syntax error and prints it out to the command line*
 * Clean, concatinate(join all), and minify your CSS and JS files
-* Load it into the browser directly with Live reload support, no more hitting the refresh button
+* Load the project into the browser directly with Live reload support, no more hitting the refresh button
 * Monitor any changes and reflect the changes to the browser immidiately
 * Create a test and distribution/final version of your app or UI (whichever case you are using it for) in their respective folders
 
@@ -83,13 +83,17 @@ This will install all the things you need for running the grunt-tasks automatica
 You will need to compile bootstrap into the app dev folder to so as to use it for development, please run:
 
 ```
-$ grunt bootstrap
+$ grunt bs
+
+or
+
+$grunt bootstrap
 ```
 
 Before starting any project, you may only need to run it once. It comes in two flavours, pure css and less. if you prefer using less, to customise bootstrap, after every customisation you will need to run:
 
 ```
-$ grunt bootstrap:less
+$ grunt bs:less
 ```
 
 Now you can start developing your site. Therefore use the GruntJS task:
@@ -111,13 +115,13 @@ To create a test and view the test version which a compiled and cleaned dev vers
 $ grunt serve
 ```
 
-And for the production/distribution version run:
+And for the production/distribution version run (no live-reload):
 
 ```
 $ grunt serve:dist
 ```
 
-> __Note:__ Grunt watch will monitor any kind of changes made to the project and reflect it immediately to the browser. No need to hit refresh button anymore.
+> __Note:__ Grunt watch will monitor any kind of changes made to the project and reflect it immediately to the browser. No need to hit refresh button anymore. The distributed version is not tied to live reload since it is emulating the final version of the product as it would have displayed on user's which does not require any live reload. When developing thus testing use the default -- __*grunt serve*__
 
 ## Browser support
 * Chrome
