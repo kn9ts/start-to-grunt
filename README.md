@@ -10,18 +10,27 @@ __cordova create command__*
 
 ###### Requires cordova/phonegap v3.3 and above using the new CLI method for development and plugin loading
 
-## Jade Supported
+### Jade Support
 __STOP__ WRITTING TIRESOME HTML, you do get tired opening and closing tags dont you?! Jade fastens front-end developement by at least 5 times. Try [Jade](http://jade-lang.com) today.
 
-## How it works
+### Boring old HTML Too
+Yes, normal old html way of writing markup is also supported. Just rename 'file_name' on line 63 to the name of the file you are working on. Do not add html or any extension tag whatsoever.
+
+```
+62.               file_name: 'myfilename', //eg for myfilename.html
+```
+
+## What does it do?
 KnightStart basically does the following:
+
 * Lint your JS - *checks for any syntax error and prints it out to the command line*
+* Prefixes your CSS, with either custom prefixes and browser required prefixes in related styles
 * Clean, concatinate(join all), and minify your CSS and JS files
 * Load the project into the browser directly with Live reload support, no more hitting the refresh button
 * Monitor any changes and reflect the changes to the browser immidiately
 * Create a test and distribution/final version of your app or UI (whichever case you are using it for) in their respective folders
 
-> Concatinates all __CSS__ into app.full.css and __JS__ into app.full.js or app.full.min.js after minification
+> Concatinates all __CSS__ into app.full.css and __JS__ into app.full.js or app.full.min.js after minification. And replacing all CSS and JS tags in your html file with one tag having the stated as thier sources. In DISTRIBUTION version only though.
 
 ## Dependencies
 

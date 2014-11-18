@@ -63,7 +63,7 @@ module.exports = function(grunt) {
             file_being_editted: '<%= app.file_name %>.jade', // Set the current file that you are editing
             // Incase if dev is using html, make the html be copied
             // to .tmp/ folder as task related to html can access it from here
-            compiled_html: '<%= app.file_name %>.html',
+            related_html_file: '<%= app.file_name %>.html',
             flatten_test_path: false, // Set to "true"  to export to silverstripe as theme
             dist_folder: "dist",
             dev_folder: "app",
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
                     // dot: true,
                     cwd: 'test/',
                     dest: '<%= app.dist_folder %>/',
-                    src: ['{,*/}*.{htm,html}', '<%= app.compiled_html %>']
+                    src: ['{,*/}*.{htm,html}', '<%= app.related_html_file %>']
                 }]
             },
             test: {
@@ -187,6 +187,15 @@ module.exports = function(grunt) {
                     dest: '<%= app.test_folder %>/',
                     src: ['/*.{htm,html}']
                 }]
+            },
+            // If user is using HTML and not Jade in <%= app.dev_folder %> for development
+            app_html:{
+                files:[{
+                    expand: true,
+                    cwd: '<%= app.dev_folder %>/',
+                    dest: '',
+                    src: ['<%= app.related_html_file %>']
+                }]
             }
         },
 
@@ -217,8 +226,8 @@ module.exports = function(grunt) {
                 //     ext: '.html'
                 // }],
 
-                src: '<%= app.compiled_html %>',
-                dest: 'test/<%= app.compiled_html %>' //update the dist/<%= app.compiled_html %> (the src <%= app.compiled_html %> is copied there)
+                src: '<%= app.related_html_file %>',
+                dest: 'test/<%= app.related_html_file %>' //update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
             },
             dist: {
                 options: {
@@ -243,8 +252,8 @@ module.exports = function(grunt) {
                         html: '<script src="js/app.full.min.js"></script>'
                     }
                 },
-                src: '<%= app.compiled_html %>', //read from source <%= app.compiled_html %>
-                dest: 'dist/<%= app.compiled_html %>', //update the dist/<%= app.compiled_html %> (the src <%= app.compiled_html %> is copied there)
+                src: '<%= app.related_html_file %>', //read from source <%= app.related_html_file %>
+                dest: 'dist/<%= app.related_html_file %>', //update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
             }
         },
 
@@ -487,7 +496,7 @@ module.exports = function(grunt) {
             },
             // For Html files
             html: {
-                files: ['app/*.html', '<%= app.compiled_html %>'],
+                files: ['app/*.html', '<%= app.related_html_file %>'],
                 tasks: ['default']
             }
         },
@@ -496,7 +505,7 @@ module.exports = function(grunt) {
         css_selectors: {
             options: {
                 mutations: [{
-                    prefix: '.kn9tslab'
+                    prefix: '.kn9t'
                 }]
             },
             prefix: {
@@ -511,6 +520,7 @@ module.exports = function(grunt) {
         'jshint:gruntfile',
         'clean', // clean all the files and folders [.tmp, dist and test]
         'jade', // IMPORTANT: uncomment this if you are using jade to write your html files
+        'copy:app_html'
     ]);
 
     // Just split bootstrap into several css mini files
