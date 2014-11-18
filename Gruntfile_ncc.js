@@ -59,15 +59,11 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         app: {
-            file_name: 'index',
-            file_being_editted: '<%= app.file_name %>.jade', // Set the current file that you are editing
-            // Incase if dev is using html, make the html be copied
-            // to .tmp/ folder as task related to html can access it from here
-            compiled_html: '<%= app.file_name %>.html',
+            file_being_editted: 'index.html',
             flatten_test_path: false, // Set to "true"  to export to silverstripe as theme
-            dist_folder: "dist",
-            dev_folder: "app",
-            test_folder: "test",
+            dist: "dist",
+            dev: "app",
+            test: "test",
             banner: "/*!\n *\n * @Author - Eugene Mutai\n * @Twitter - JheneKnights\n * @Email - eugenemutai@gmail.com\n *\n * Date: <%= grunt.template.today('dd/mm/yyyy') %>\n * Time: <%= grunt.template.today('hh:mm') %>\n * Description: <%= pkg.description %>\n * Licensed under <%= pkg.license.type %> ( <%= pkg.license.url %>)\n * Ayyee, Ayyee! Always happy to help. :) \n */\n"
         },
 
@@ -79,10 +75,10 @@ module.exports = function(grunt) {
                 files: [{
                     dot: true,
                     // dont delete the git folder
-                    src: ['.tmp', '<%= app.dist_folder %>', '!<%= app.dist_folder %>/.git*']
+                    src: ['.tmp', 'test', '<%= app.dist %>', '!<%= app.dist %>/.git*']
                 }]
             },
-            test: ['.tmp', '<%= app.test_folder %>']
+            test: ['.tmp', 'test']
         },
 
         copy: {
@@ -90,34 +86,34 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     // dot: true,
-                    cwd: '<%= app.dev_folder %>/', // "app/" folder
-                    dest: '<%= app.dist_folder %>/',
+                    cwd: '<%= app.dev %>/', // "app/" folder
+                    dest: '<%= app.dist %>/',
                     src: ['{,*/}*.{ico,png,txt,htaccess,md,markdown}', 'images/*', 'fonts/*']
                 }, {
                     expand: true,
                     // dot: true,
                     cwd: '.tmp/',
-                    dest: '<%= app.dist_folder %>/',
+                    dest: '<%= app.dist %>/',
                     src: ['{,*/}*.{css,js}', 'js/*', 'css/*']
                 }, {
                     expand: true,
                     // dot: true,
                     cwd: 'test/',
-                    dest: '<%= app.dist_folder %>/',
-                    src: ['{,*/}*.{htm,html}', '<%= app.compiled_html %>']
+                    dest: '<%= app.dist %>/',
+                    src: ['{,*/}*.{htm,html}', '<%= app.file_being_editted %>']
                 }]
             },
             test: {
                 files: [{
                     expand: true,
                     cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     src: ['images/*', 'fonts/*']
                 }, {
                     expand: true,
                     // dot: true,
                     cwd: '.tmp/',
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     src: ['{,*/}*.{css,js}', 'js/*', 'css/*']
                 }]
             },
@@ -125,36 +121,36 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     // cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     src: '{,*/}*.html',
                 }, {
                     expand: true,
                     // cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     // flatten: '<%= app.flatten_test_path =>',
                     src: '<%= dom_munger.data.jsRefs %>'
                 }, {
                     expand: true,
                     // dot: true,
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     // flatten: '<%= app.flatten_test_path =>',
                     src: '<%= dom_munger.data.cssRefs %>'
                 }, {
                     expand: true,
                     cwd: 'app/',
-                    dest: '<%= app.test_folder %>/app/',
+                    dest: '<%= app.test %>/app/',
                     // flatten: '<%= app.flatten_test_path =>',
                     src: ['images/{,*/}*.*', 'fonts/*']
                 }, {
                     expand: true,
                     cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     // flatten: '<%= app.flatten_test_path =>',
                     src: ['images/{,*/}*.*']
                 }, {
                     expand: true,
                     cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     // flatten: '<%= app.flatten_test_path =>',
                     src: ['fonts/*']
                 }]
@@ -163,31 +159,22 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'frameworks/bootstrap/dist/',
-                    dest: '<%= app.dist_folder %>/',
+                    dest: '<%= app.dist %>/',
                     src: ['fonts/*']
                 }, {
                     expand: true,
                     cwd: 'frameworks/bootstrap/dist/',
-                    dest: '<%= app.test_folder %>/',
+                    dest: '<%= app.test %>/',
                     src: ['fonts/*']
                 }]
             },
             others: {
                 files: [{
                     expand: true,
-                    dest: '<%= app.dist_folder %>/',
+                    dest: '<%= app.dist %>/',
                     src: ['.htaccess', 'docs/BSD-License', 'docs/LICENSE-MIT', 'README.md']
                 }]
             },
-            html: {
-                files: [{
-                    expand: true,
-                    // dot: true,
-                    cwd: '',
-                    dest: '<%= app.test_folder %>/',
-                    src: ['/*.{htm,html}']
-                }]
-            }
         },
 
         // Reads the related html file
@@ -207,18 +194,25 @@ module.exports = function(grunt) {
                         writeto: 'jsRefs',
                         isPath: true
                     }],
+                    // remove: ['link[rel="stylesheet"]', 'script[type="text/javascript"]'],
+                    // append: {
+                    //     selector: 'head',
+                    //     html: '<link href="css/app.full.css" rel="stylesheet">'
+                    // },
+                    // prepend: {
+                    //     selector: 'application-engine',
+                    //     html: '<script src="js/app.full.js"></script>'
+                    // }
                 },
-                // Takes all the html files that have been compiled and sends it to the <%= app.test_folder %> folder
                 // files: [{
                 //     expand: true,
-                //     cwd: '', // in the root dir
+                //     cwd: '',
                 //     src: '*.html',
-                //     dest: '<%= app.test_folder %>/',
+                //     dest: 'test/',
                 //     ext: '.html'
-                // }],
-
-                src: '<%= app.compiled_html %>',
-                dest: 'test/<%= app.compiled_html %>' //update the dist/<%= app.compiled_html %> (the src <%= app.compiled_html %> is copied there)
+                // }]
+                src: '<%= app.file_being_editted %>',
+                dest: 'test/<%= app.file_being_editted %>' //update the dist/<%= app.file_being_editted %> (the src <%= app.file_being_editted %> is copied there)
             },
             dist: {
                 options: {
@@ -243,8 +237,8 @@ module.exports = function(grunt) {
                         html: '<script src="js/app.full.min.js"></script>'
                     }
                 },
-                src: '<%= app.compiled_html %>', //read from source <%= app.compiled_html %>
-                dest: 'dist/<%= app.compiled_html %>', //update the dist/<%= app.compiled_html %> (the src <%= app.compiled_html %> is copied there)
+                src: '<%= app.file_being_editted %>', //read from source <%= app.file_being_editted %>
+                dest: 'dist/<%= app.file_being_editted %>', //read from source index.
             }
         },
 
@@ -277,7 +271,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // By default, your `index.html`'s <!-- Usemin block --> will take care of
+        // By default, your `<%= app.file_being_editted %>`'s <!-- Usemin block --> will take care of
         // minification. These next options are pre-configured if you do not wish
         // to use the Usemin blocks.
         // Minify the CSS concentanated -- application.css
@@ -362,7 +356,7 @@ module.exports = function(grunt) {
                     collapseBooleanAttributes: true,
                     collapseWhitespace: true,
                     removeAttributeQuotes: false,
-                    removeComments: true, // Should remove comments from the DIST file [clean markup]
+                    // removeComments: true,
                     removeCommentsFromCDATA: true,
                     removeEmptyAttributes: true,
                     removeOptionalTags: true,
@@ -371,9 +365,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= app.test_folder %>/',
+                    cwd: '<%= app.test %>',
                     src: ['{,*/}*.html'],
-                    dest: '<%= app.dist_folder %>/',
+                    dest: '<%= app.dist %>',
                     // ext: '.min.html',
                     // extDot: 'last'
                 }]
@@ -389,17 +383,16 @@ module.exports = function(grunt) {
                     pretty: true
                 },
                 files: [{
-                        expand: true,
-                        cwd: 'app/',
-                        src: '*.jade',
-                        dest: '',
-                        ext: '.html'
+                    expand: true,
+                    cwd: 'app/',
+                    src: '*.jade',
+                    dest: '',
+                    ext: '.html'
 
-                        // The path to compile to and the path to where to get the jade files
-                        // In this case the in root
-                        // "index.html": ['app/index.jade']
-                    }]
-                    // files: {"index.html": ['app/index.jade'] }
+                    // The path to compile to and the path to where to get the jade files
+                    // In this case the in root
+                    // "index.html": ['app/index.jade']
+                }]
             }
         },
 
@@ -431,14 +424,14 @@ module.exports = function(grunt) {
             livereload: {
                 options: {
                     open: true,
-                    base: ['<%= app.test_folder %>']
+                    base: ['<%= app.test %>']
                 }
             },
             dist: {
                 options: {
                     open: true,
                     port: 1500,
-                    base: '<%= app.dist_folder %>',
+                    base: '<%= app.dist %>',
                     livereload: false
                 }
             }
@@ -478,25 +471,22 @@ module.exports = function(grunt) {
             },
             jade: {
                 files: ['**/*.jade'],
-                // if you do not want to concatinate them replace 'copy:dist' with 'copy:test_unpackaged'
-                tasks: ['jade', 'dom_munger:test', 'copy:dist', 'dom_munger:dist', 'htmlmin']
+                tasks: ['jade', 'dom_munger:test', 'copy:test_unpackaged', 'htmlmin']
             },
             gruntfile: {
                 files: ['Gruntfile.js'],
                 tasks: ['default']
             },
-            // For Html files
             html: {
-                files: ['app/*.html', '<%= app.compiled_html %>'],
+                files: ['app/*.html'],
                 tasks: ['default']
             }
         },
 
-        // To prefix the CSS file with the app's signature
         css_selectors: {
             options: {
                 mutations: [{
-                    prefix: '.kn9tslab'
+                    prefix: '.fitiimage'
                 }]
             },
             prefix: {
@@ -510,7 +500,7 @@ module.exports = function(grunt) {
     grunt.registerTask('start', [
         'jshint:gruntfile',
         'clean', // clean all the files and folders [.tmp, dist and test]
-        'jade', // IMPORTANT: uncomment this if you are using jade to write your html files
+        // 'jade', // IMPORTANT: uncomment this if you are using jade to write your html files
     ]);
 
     // Just split bootstrap into several css mini files
@@ -522,24 +512,19 @@ module.exports = function(grunt) {
         } else {
             // With no argument just run join all bootstrap individual files into one
             // Copies to "app/css/" folder for later concatination with user's css
-            // -- wraps all bootstrap folders into one
             return grunt.task.run(['concat:bootstrap']);
         }
     });
-    // shortcut to bootstrap compiling task
-    grunt.registerTask('bs', ['bootstrap'])
 
     // Serve the app and view changes live
     grunt.registerTask('serve', function(target) {
         if (target === 'dist') {
-            // return grunt.task.run(['default', 'connect:dist:keepalive']);
-            return grunt.task.run(['distribution', 'connect:dist:keepalive']);
+            return grunt.task.run(['default', 'test', 'distribution', 'connect:dist:keepalive']);
         }
-        grunt.task.run(['test', 'connect:livereload', 'watch']);
+        grunt.task.run(['default', 'test', 'connect:livereload', 'watch']);
     });
 
     grunt.registerTask('test', [
-        'clean:test', 
         // 'css_selectors',
         // 'concat:bootstrap', // -- wrap all bootstrap folders into one, being done above instead
         'dom_munger:test', //get all required files to concat, cssmin and uglify
@@ -551,13 +536,11 @@ module.exports = function(grunt) {
         // 'uglify',
         'copy:test_unpackaged', // NEW PROCESS -- get all files from TEST
         // 'distribution', // To also package up the application for distribution
-        // 'htmlmin', // Testing does not require minification,
-        'copy:html' // to copy the html in the case that it fails
+        // 'htmlmin', // Testing does not require minification
     ]);
 
     // Tasks for the app distrubution packaging
     grunt.registerTask('distribution', [
-        'clean:dist',
         // Process for the END DISTRUBUTED product
         'dom_munger:dist',
         'concat:appcss',
@@ -572,9 +555,6 @@ module.exports = function(grunt) {
         'htmlmin'
     ]);
 
-    // Same as rolling out a production version
-    grunt.registerTask('production', ['distribution']);
-
     // Triggred when watch task is prompted, this is for extra info that you may need
     grunt.event.on('watch', function(action, filepath, target) {
         grunt.log.ok("--------- info: " + filepath + " has " + action + " || TASK: " + target + " ----------");
@@ -584,7 +564,6 @@ module.exports = function(grunt) {
     // Tell Grunt what to do when we type "grunt" into the terminal
     // Could start watching for changes and running related tasks as per changes
     // Run "$ grunt watch" after the default tasks or "$ grunt server" to view your changes live
-    // grunt.registerTask('default', ['start']); // default
-    grunt.registerTask('default', ['start', 'distribution', 'test']);
+    grunt.registerTask('default', ['start', 'test', 'distribution']);
 
 };

@@ -20,7 +20,6 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta http-equiv="cleartype" content="on">
-    <!-- Twitter Bootstrap -->
     <!-- http://getbootstrap.com/ -->
     <link rel="stylesheet" href="frameworks/bootstrap/dist/css/bootstrap.css">
     <!-- Your stylesheets -->
@@ -77,19 +76,12 @@
       </div>
     </div>
     <!-- App's dependencies(libraries) and business logics-->
-    <application-engine rel="All the application's JS files fall here">
-      <!-- Base engine, for Phonegap app -->
+    <application-engine description="All the application's JS files fall here">
+      <!-- Base engine, for Phonegap app, uncomment this if you are using phonegap-->
       <!-- script(type="text/javascript" src="cordova.js")-->
-      <!-- script(type="text/javascript" src="js/libraries/cordova.test.min.js")-->
       <!-- jQuery library-->
       <script type="text/javascript" src="js/libraries/jquery/jquery.min.js"></script>
-      <!-- Angularjs MVC, MVVM framework -->
-      <script type="text/javascript" src="./framework/angular/angular.min.js"></script>
-      <script type="text/javascript" src="./framework/angular/angular-resource.min.js"></script>
-      <!-- QuoJS, touch supporting library -->
-      <script type="text/javascript" src="js/libraries/quojs/quo.debug.js"></script>
-      <!-- script(type="text/javascript" src="js/libraries/quojs/quo.js")-->
-      <!-- For cookies and touch -->
+      <!-- For cookies and touch support -->
       <script type="text/javascript" src="js/plugins/jquery.cookie.js"></script>
       <script type="text/javascript" src="js/plugins/jquery.hammer.min.js"></script>
       <!-- for scrolling -->
