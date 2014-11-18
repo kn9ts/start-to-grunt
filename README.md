@@ -1,5 +1,5 @@
 #KnightStart
-#### __HTML5__ starter kit for creating HTML5 UI/UX for application intergrated with __GRUNTJS__ for fast, clean and optimised app creation
+#### __HTML5__ starter kit for creating HTML5 applications and user interfaces, intergrated with __GRUNTJS__ for fast, clean and optimised app creation.
 
 It has all the neccessary requirements to get anyone started in creating apps fast and easy.
 
@@ -13,27 +13,26 @@ __cordova create command__*
 ### Jade Support
 __STOP__ WRITTING TIRESOME HTML, you do get tired opening and closing tags dont you?! Jade fastens front-end developement by at least 5 times. Try [Jade](http://jade-lang.com) today.
 
-### Boring old HTML Too
-Yes, normal old html way of writing markup is also supported. Just rename 'file_name' on line 63 to the name of the file you are working on. Do not add html or any extension tag whatsoever.
+### Boring old HTML Too (duuuuh!)
+Yes, you can use the normal/old html way of writing markup. Just rename 'file_name' variable on line 63 to the name of the file you are working on. Do not add html or any extension tag whatsoever.
 
 ```
 62.               file_name: 'myfilename', //eg for myfilename.html
 ```
 
-## What does it do?
-KnightStart basically does the following:
+## What does do for me?
+__KnightStart__ basically does the following:
 
 * Lint your JS - *checks for any syntax error and prints it out to the command line*
 * Prefixes your CSS, with either custom prefixes and browser required prefixes in related styles
 * Clean, concatinate(join all), and minify your CSS and JS files
 * Load the project into the browser directly with Live reload support, no more hitting the refresh button
 * Monitor any changes and reflect the changes to the browser immidiately
-* Create a test and distribution/final version of your app or UI (whichever case you are using it for) in their respective folders
+* Create a test and distribution/final versions of your app or UI (whichever case you are using it for) in their respective folders
 
 > Concatinates all __CSS__ into app.full.css and __JS__ into app.full.js or app.full.min.js after minification. And replacing all CSS and JS tags in your html file with one tag having the stated as thier sources. In DISTRIBUTION version only though.
 
 ## Dependencies
-
 You will need to install some stuff, if you haven't already:
 
 Majors:
@@ -41,6 +40,7 @@ Majors:
 * Node.js
 
 Secondaries:
+
 * npm
 * less
 * gruntjs
