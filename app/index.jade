@@ -38,8 +38,9 @@ html(lang="en")
         //- Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.
         //- Bootstrap easily and efficiently scales your project with one code base, from phones to tablets to desktops.
         // http://getbootstrap.com/components
-        link(rel='stylesheet', href='frameworks/bootstrap/dist/css/bootstrap.css')
-        //- link(rel="stylesheet" href="frameworks/bootstrap/dist/css/bootstrap-theme.css") 
+        link(rel='stylesheet', href='bower_assets/bootstrap/dist/css/bootstrap.css')
+        //- link(rel="stylesheet" href="bower_assets/bootstrap/dist/css/bootstrap-theme.css")
+        link(rel='stylesheet', href='bower_assets/fontawesome/css/font-awesome.css')
         
         // Your stylesheets 
         link(rel='stylesheet', href='app/css/application.css')
@@ -54,7 +55,7 @@ html(lang="en")
                 | to improve your experience.
 
         .row
-            .col-sm-offset-3.col-sm-6.col-xs-12
+            .col-sm-offset-2.col-sm-8.col-xs-12
                 .container-fluid
                     .header
                         .row
@@ -69,8 +70,9 @@ html(lang="en")
                         h1 'Ayyee, 'Ayyee!
                         p.lead Always a pleasure scaffolding your apps.
                         p
-                            a.btn.btn-lg.btn-default(href='#') Hapo Sawaa! 
-                                span.glyphicon.glyphicon-ok
+                            a.btn.btn-lg.btn-default(href='#')
+                                span.fa.fa-check-square-o &nbsp;
+                                | Hapo Sawaa!
                     
                     .row.marketing
                         .col-lg-12
@@ -89,34 +91,30 @@ html(lang="en")
                         h4
                             p.bg-success.text-center.text-muted.small-padding
                                 | © 2014, with&nbsp;
-                                span.glyphicon.glyphicon-heart 
+                                span.fa.fa-heart 
                                 | &nbsp;from the Eugene Mutai -- http://knightslab.com
                 
 
         // App's dependencies(libraries) and business logics
-        application-engine(description="All the application's JS files fall here")
+        application-engine(description="all the application's JS files fall here")
             
-            // Base engine, for Phonegap app, uncomment this if you are using phonegap
-            // script(type="text/javascript" src="cordova.js")
+            //- Base engine, for Phonegap app, uncomment this if you are using phonegap
+            //- script(type="text/javascript" src="cordova.js")
 
             // jQuery library
-            script(type="text/javascript" src="js/libraries/jquery/jquery.min.js")
+            script(type="text/javascript" src="bower_assets/jquery/dist/jquery.min.js")
 
             //- Angularjs MVC, MVVM framework 
-            //- script(type="text/javascript" src="./framework/angular/angular.min.js")
-            //- script(type="text/javascript" src="./framework/angular/angular-resource.min.js")
-
-            //- QuoJS, touch supporting library 
-            //- script(type="text/javascript" src="js/libraries/quojs/quo.debug.js")
-            //- script(type="text/javascript" src="js/libraries/quojs/quo.js")
+            //- script(type="text/javascript" src="bower_assets/angularjs/angular.min.js")
+            //- script(type="text/javascript" src="bower_assets/angularjs/angular-resource.min.js")
 
             // For cookies and touch support 
-            script(type="text/javascript" src="js/plugins/jquery.cookie.js")
-            script(type="text/javascript" src="js/plugins/jquery.hammer.min.js")
+            script(type="text/javascript" src="bower_assets/jquery-cookie/jquery.cookie.js")
+            script(type="text/javascript" src="bower_assets/hammerjs/hammer.min.js")
 
             // for scrolling 
             link(rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css")
-            script(type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.min.js")
+            script(type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.concat.min.js")
 
             //- Knockout MVVM framework 
             //- script(type="text/javascript" src="js/libraries/knockout-3.0.0.js")

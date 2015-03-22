@@ -1,247 +1,240 @@
 /**
  * CSS STYLING FILE
  * Created by Eugene Mutai
- * Date: 4/13/13
- * Time: 5:52 PM
- * Description: These are basic styles that come in handy time to time
+ * Date: 22/03/2015
+ * Time: 08:03
+ * Description: Custom CSS of the application
  * @import url(http://fonts.googleapis.com/css?family=Raleway:300,400,500);
  */
-/*BRAND FONT*/
-
 @font-face {
-    font-family: 'Raleway';
-    src: local('Raleway Regular'), local('Raleway'), url('../fonts/Raleway-Light.ttf') format('truetype');
+  font-family: 'Raleway';
+  src: local('Raleway Regular'), local('Raleway'), url('../fonts/Raleway-Light.ttf') format('truetype');
 }
-/* general purpose */
-
-html, body {
-    font-family: 'Raleway', sans-serif;
-    padding: 0;
-    margin: 0;
-    cursor: default;
-    overflow-x: hidden;
+html {
+  cursor: default;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+}
+body {
+  cursor: default;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
 }
 .wf-active body {
-    font-family: 'raleway', sans-serif;
+  font-family: 'raleway', sans-serif;
 }
 a {
-    text-decoration: none
+  text-decoration: none;
 }
 .padding-top {
-    padding-top: 1.5em;
+  padding-top: 1.5em;
 }
 .require-margin {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
-/******* Colors *******/
-
 .red {
-    color: #D82E2F;
+  color: #d82e2f;
 }
 .orange {
-    color: #F39C12;
+  color: #f39c12;
 }
 .green {
-    color: #2ECC71;
+  color: #2ecc71;
 }
 .yellow {
-    color: #FFDE00;
+  color: #ffde00;
 }
 .blue {
-    color: #27569C;
+  color: #27569c;
 }
 .white {
-    color: #FEFEFE;
+  color: #fefefe;
 }
 .grey {
-    color: #232323;
+  color: #232323;
 }
-/****** Background colors *************/
-
 .red-bg {
-    background: #D82E2F;
+  background: #d82e2f;
 }
 .orange-bg {
-    background: #F39C12;
+  background: #f39c12;
 }
 .green-bg {
-    background: #2ECC71;
+  background: #2ecc71;
 }
 .yellow-bg {
-    background: #FFDE00;
+  background: #ffde00;
 }
 .blue-bg {
-    background: #27569C;
+  background: #27569c;
 }
 .white-bg {
-    background: #FEFEFE;
-    border-radius: 50%;
-    vertical-align: middle;
-    border: 1px solid #FEFEFE;
+  background: #fefefe;
+  border-radius: 50%;
+  border: 1px solid #fefefe;
+  vertical-align: middle;
 }
 .grey-bg {
-    background: #232323;
-    color: #999;
+  background: #232323;
+  color: #999999;
 }
 .pale-grey-bg {
-    background: #EDEDED;
+  background: #ededed;
 }
-/*---------- PAGE TRANSITIONS ---------
-*** adds the sliding animation to the page ***/
-
 .sliding-panel {
-    width: 100%;
-    min-height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    box-shadow: 4px -4px 4px rgba(0, 0, 0, 0.2);
-    margin-left: -150%;
-    z-index: 999;
-    overflow-x: hidden;
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  background-color: #000000;
+  box-shadow: 4px -4px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  margin-left: -150%;
+  min-height: 100%;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  z-index: 999;
 }
 .sliding-panel:target {
-    margin-left: 0%;
-    background-color: #B1E583;
+  background-color: #B1E583;
+  margin-left: 0%;
 }
-/*** splash page, or app full page rendering ***/
-
-.splash, .app-page {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
+.splash {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.app-page {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
 }
 .overlay {
-    background: #000;
-    opacity: .7;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    display: none;
+  background: #000000;
+  display: none;
+  left: 0;
+  opacity: .7;
+  position: fixed;
+  top: 0;
+  z-index: 99;
 }
-/********* OTHER DEFAULTS ******/
-
 .content {
-    width: 95%;
-    margin: auto;
+  margin: auto;
+  width: 95%;
 }
 .line {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
 }
 .line IMG {
-    height: 100%;
+  height: 100%;
 }
 .space {
-    padding: 2% 0;
+  padding: 2% 0;
 }
 .space-lg {
-    padding: 5% 0;
+  padding: 5% 0;
 }
 .left {
-    float: left;
+  float: left;
 }
 .right {
-    float: right;
+  float: right;
 }
 .padding-xs {
-    padding: 0.2em;
+  padding: 0.2em;
 }
 .padding-sm {
-    padding: 0.45em;
+  padding: 0.45em;
 }
 .padding {
-    padding: 0.8em;
+  padding: 0.8em;
 }
 .no-padding {
-    padding: 0;
+  padding: 0;
 }
 .margin {
-    margin: 2% 0;
+  margin: 2% 0;
 }
 .auto-margin {
-    margin: auto;
+  margin: auto;
 }
 .no-margin {
-    margin: 0;
+  margin: 0;
 }
 .faded {
-    opacity: 0.4;
+  opacity: 0.4;
 }
 .largetext {
-    font-size: 1.5em;
-    padding: 0;
-    margin: 0;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0;
 }
 .uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 .clear {
-    clear: both;
+  clear: both;
 }
 .width-xs {
-    width: 100px;
+  width: 100px;
 }
 .width-sm {
-    width: 200px;
+  width: 200px;
 }
 .width-md {
-    width: 300px;
+  width: 300px;
 }
 .width-lg {
-    width: 400px;
+  width: 400px;
 }
 .width-responsive {
-    width: 100%;
-}
-.uppercase {
-    text-transform: uppercase;
+  width: 100%;
 }
 .border-xs {
-    border-width: 1px;
-    border-style: solid;
-    border-color: #EDEDED;
+  border-color: #ededed;
+  border-style: solid;
+  border-width: 1px;
 }
 .border-styled {
-    border-width: 3px;
-    border-style: solid;
-    border-radius: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 3px;
 }
 .curves {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 .link {
-    cursor: pointer;
+  cursor: pointer;
 }
 .hide {
-    display: none;
+  display: none;
 }
 .invisible {
-    visibility: none;
+  visibility: none;
 }
 .normal {
-    font-weight: normal;
+  font-weight: normal;
 }
-/* Your own css should follow from here */
-
 .small-padding {
-    padding: 0.3em;
+  padding: 0.3em;
 }
 .error span {
-    color: #e74c3c;
+  color: #e74c3c;
 }
 .no-scroll {
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

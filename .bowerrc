@@ -1,0 +1,6 @@
+{
+  "directory": "bower_assets",
+  "analytics": false,
+  "timeout": 120000,
+  "color": true
+}

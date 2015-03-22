@@ -29,7 +29,8 @@
     <meta name="keywords" content="">
     <meta http-equiv="cleartype" content="on">
     <!-- http://getbootstrap.com/components-->
-    <link rel="stylesheet" href="frameworks/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_assets/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_assets/fontawesome/css/font-awesome.css">
     <!-- Your stylesheets -->
     <link rel="stylesheet" href="app/css/application.css">
   </head>
@@ -44,7 +45,7 @@
         
     -->
     <div class="row">
-      <div class="col-sm-offset-3 col-sm-6 col-xs-12">
+      <div class="col-sm-offset-2 col-sm-8 col-xs-12">
         <div class="container-fluid">
           <div class="header">
             <div class="row">
@@ -63,7 +64,7 @@
           <div class="jumbotron text-center">
             <h1>'Ayyee, 'Ayyee!</h1>
             <p class="lead">Always a pleasure scaffolding your apps.</p>
-            <p><a href="#" class="btn btn-lg btn-default">Hapo Sawaa! <span class="glyphicon glyphicon-ok"></span></a></p>
+            <p><a href="#" class="btn btn-lg btn-default"><span class="fa fa-check-square-o">&nbsp;</span>Hapo Sawaa!</a></p>
           </div>
           <div class="row marketing">
             <div class="col-lg-12">
@@ -77,24 +78,22 @@
           </div>
           <div class="footer text-center">
             <h4>
-              <p class="bg-success text-center text-muted small-padding">© 2014, with&nbsp;<span class="glyphicon glyphicon-heart"></span>&nbsp;from the Eugene Mutai -- http://knightslab.com</p>
+              <p class="bg-success text-center text-muted small-padding">© 2014, with&nbsp;<span class="fa fa-heart"></span>&nbsp;from the Eugene Mutai -- http://knightslab.com</p>
             </h4>
           </div>
         </div>
       </div>
     </div>
     <!-- App's dependencies(libraries) and business logics-->
-    <application-engine description="All the application's JS files fall here">
-      <!-- Base engine, for Phonegap app, uncomment this if you are using phonegap-->
-      <!-- script(type="text/javascript" src="cordova.js")-->
+    <application-engine description="all the application's JS files fall here">
       <!-- jQuery library-->
-      <script type="text/javascript" src="js/libraries/jquery/jquery.min.js"></script>
+      <script type="text/javascript" src="bower_assets/jquery/dist/jquery.min.js"></script>
       <!-- For cookies and touch support -->
-      <script type="text/javascript" src="js/plugins/jquery.cookie.js"></script>
-      <script type="text/javascript" src="js/plugins/jquery.hammer.min.js"></script>
+      <script type="text/javascript" src="bower_assets/jquery-cookie/jquery.cookie.js"></script>
+      <script type="text/javascript" src="bower_assets/hammerjs/hammer.min.js"></script>
       <!-- for scrolling -->
       <link rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css">
-      <script type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.min.js"></script>
+      <script type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.concat.min.js"></script>
       <!-- Time management -->
       <script type="text/javascript" src="js/libraries/momentjs/moment.min.js"></script>
       <!-- Your app functions script -->

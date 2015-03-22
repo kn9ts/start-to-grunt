@@ -33,7 +33,8 @@ node_modules
 
 
 ### Bower ###
-bower_components
+bower_components/
+bower_assets/
 
 
 ### JustCode ###

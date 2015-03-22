@@ -159,17 +159,21 @@ module.exports = function(grunt) {
                     src: ['fonts/*']
                 }]
             },
-            bootstrap: {
+            // Adding the copying of font-awesome fonts
+            // Pre-destribution deprecated
+            bower_asset: {
                 files: [{
                     expand: true,
-                    cwd: 'frameworks/bootstrap/dist/',
-                    dest: '<%= app.dist_folder %>/',
-                    src: ['fonts/*']
+                    // dot: true,
+                    cwd: 'bower_asset/', // "app/" folder
+                    dest: '<%= app.test_folder %>/bower_asset',
+                    src: ['**/*.{css,js,eot,svg,ttf,woff,woff2,otf}']
                 }, {
                     expand: true,
-                    cwd: 'frameworks/bootstrap/dist/',
-                    dest: '<%= app.test_folder %>/',
-                    src: ['fonts/*']
+                    // dot: true,
+                    cwd: 'bower_asset/', // "app/" folder
+                    dest: '<%= app.dist_folder %>/fonts',
+                    src: ['**/*.{css,js,eot,svg,ttf,woff,woff2,otf}']
                 }]
             },
             others: {
@@ -189,8 +193,8 @@ module.exports = function(grunt) {
                 }]
             },
             // If user is using HTML and not Jade in <%= app.dev_folder %> for development
-            app_html:{
-                files:[{
+            app_html: {
+                files: [{
                     expand: true,
                     cwd: '<%= app.dev_folder %>/',
                     dest: '',
@@ -332,27 +336,52 @@ module.exports = function(grunt) {
         // Use this if you are customizing the bootstrap css using less
         // https://www.npmjs.org/package/grunt-contrib-less
         less: {
-            options: {
-                report: 'min',
-                sourceMap: false,
-                // @path - Specifies directories to scan for @import directives when parsing.
-                // Default value is the directory of the source, which is probably what you want
-                paths: ['frameworks/bootstrap/less']
-            },
             // compile Bootstrap
-            files: {
-                expand: true,
-                cwd: 'frameworks/bootstrap/less/',
-                src: '*.less',
-                dest: 'frameworks/bootstrap/test',
-                ext: '.css'
+            bootstrap: {
+                options: {
+                    report: 'min',
+                    sourceMap: false,
+                    // @path - Specifies directories to scan for @import directives when parsing.
+                    // Default value is the directory of the source, which is probably what you want
+                    paths: ['assets/bootstrap/less']
+                },
+                files: [{
+                    // expand: true,
+                    cwd: 'assets/bootstrap/less/',
+                    src: '*.less',
+                    dest: 'assets/bootstrap/test',
+                    ext: '.css'
+                }]
+            },
+
+            // Your custom LESS script will compiled by this
+            dev: {
+                options: {
+                    report: 'min',
+                    sourceMap: false,
+                    paths: ['app/less'],
+                    plugins: [
+                        new require('less-plugin-autoprefix')({
+                            browsers: ["last 5 versions"]
+                        })
+                        // new require('less-plugin-clean-css')(cleanCssOptions)
+                    ],
+                    banner: "/**\n * CSS STYLING FILE\n * Created by Eugene Mutai\n * Date: <%= grunt.template.today('dd/mm/yyyy') %>\n * Time: <%= grunt.template.today('hh:mm') %>\n * Description: Custom CSS of the application\n * @import url(http://fonts.googleapis.com/css?family=Raleway:300,400,500);\n */\n\n\n"
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'app/less/',
+                    src: '*.less',
+                    dest: 'app/css/',
+                    ext: '.css'
+                }]
             }
         },
 
         // Add vendor prefixed styles to the CSS
         autoprefixer: {
             options: {
-                browsers: ['last 1 version']
+                browsers: ['last 5 version']
             },
             default: {
                 files: [{
@@ -477,6 +506,10 @@ module.exports = function(grunt) {
                     'app/**/*.{png,jpg,jpeg,gif,webp,svg,ttf,otf,woff}'
                 ]
             },
+            less: {
+                files: ["app/less/*.less"],
+                tasks: ['less:dev']
+            },
             css: {
                 files: ["app/**/*.css"],
                 tasks: ['dom_munger:test', 'concat:appcss', 'cssmin:dist', 'copy']
@@ -497,7 +530,7 @@ module.exports = function(grunt) {
             // For Html files
             html: {
                 files: ['app/*.html', '<%= app.related_html_file %>'],
-                tasks: ['default']
+                tasks: ['test']
             }
         },
 
@@ -520,7 +553,8 @@ module.exports = function(grunt) {
         'jshint:gruntfile',
         'clean', // clean all the files and folders [.tmp, dist and test]
         'jade', // IMPORTANT: uncomment this if you are using jade to write your html files
-        'copy:app_html'
+        'copy:app_html',
+        'less:dev'
     ]);
 
     // Just split bootstrap into several css mini files
@@ -549,7 +583,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('test', [
-        'clean:test', 
+        'clean:test',
         // 'css_selectors',
         // 'concat:bootstrap', // -- wrap all bootstrap folders into one, being done above instead
         'dom_munger:test', //get all required files to concat, cssmin and uglify
@@ -560,6 +594,7 @@ module.exports = function(grunt) {
         // 'concat:appjs',
         // 'uglify',
         'copy:test_unpackaged', // NEW PROCESS -- get all files from TEST
+        'copy:bower_asset',
         // 'distribution', // To also package up the application for distribution
         // 'htmlmin', // Testing does not require minification,
         'copy:html' // to copy the html in the case that it fails
@@ -577,6 +612,7 @@ module.exports = function(grunt) {
         'concat:appjs',
         'uglify',
         'copy:dist',
+        'copy:bower_asset',
         'copy:bootstrap', // uncomment if you are using bootstrap, thus copy it's glyphicon fonts
         'copy:others',
         'htmlmin'
@@ -587,7 +623,7 @@ module.exports = function(grunt) {
 
     // Triggred when watch task is prompted, this is for extra info that you may need
     grunt.event.on('watch', function(action, filepath, target) {
-        grunt.log.ok("--------- info: " + filepath + " has " + action + " || TASK: " + target + " ----------");
+        grunt.log.ok("--------- <(0_0)> info: " + filepath + " has " + action + " || TASK: " + target + " ----------");
     });
     // grunt.registerTask('serve', ['express', 'open', 'watch:server']);
 
