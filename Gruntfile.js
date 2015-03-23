@@ -33,6 +33,9 @@ var LIVERELOAD_PORT = 35729;
 
 module.exports = function(grunt) {
 
+    // Time how long tasks take. Can help when optimizing build times
+    require('time-grunt')(grunt);
+
     // load all grunt tasks matching the `grunt-*` pattern
     require('load-grunt-tasks')(grunt);
     // This replaces the tiresome task of including all grunt-plugins as you would have done below
@@ -50,9 +53,6 @@ module.exports = function(grunt) {
     // grunt.loadNpmTasks('grunt-contrib-nodeunit');
     // grunt.loadNpmTasks('grunt-contrib-jshint');
     // grunt.loadNpmTasks('grunt-contrib-watch');
-
-    // Time how long tasks take. Can help when optimizing build times
-    require('time-grunt')(grunt);
 
     // Project configuration.
     grunt.initConfig({
@@ -86,94 +86,83 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            dist: {
+            components_to_dist: {
                 files: [{
-                    expand: true,
-                    // dot: true,
-                    cwd: '<%= app.dev_folder %>/', // "app/" folder
-                    dest: '<%= app.dist_folder %>/',
-                    src: ['{,*/}*.{ico,png,txt,htaccess,md,markdown}', 'images/*', 'fonts/*']
-                }, {
                     expand: true,
                     // dot: true,
                     cwd: '.tmp/',
                     dest: '<%= app.dist_folder %>/',
-                    src: ['{,*/}*.{css,js}', 'js/*', 'css/*']
+                    src: ['**/*.{css,js}'] // 'js/*', 'css/*'
                 }, {
                     expand: true,
                     // dot: true,
-                    cwd: 'test/',
+                    cwd: '',
                     dest: '<%= app.dist_folder %>/',
-                    src: ['{,*/}*.{htm,html}', '<%= app.related_html_file %>']
+                    src: ['*.{htm,html}']
                 }]
             },
-            test: {
+            app_assets_to_dist: {
                 files: [{
                     expand: true,
-                    cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
-                    src: ['images/*', 'fonts/*']
-                }, {
+                    cwd: '<%= app.dev_folder %>/',
+                    dest: '<%= app.dist_folder %>/',
+                    src: ['{,*/}*.{ico,png,txt,htaccess,md,markdown}', 'images/**/*.*', 'fonts/**/*.*']
+                }]
+            },
+            html_to_test: {
+                files: [{
                     expand: true,
                     // dot: true,
-                    cwd: '.tmp/',
+                    cwd: '',
                     dest: '<%= app.test_folder %>/',
-                    src: ['{,*/}*.{css,js}', 'js/*', 'css/*']
+                    src: ['./*.{htm,html}']
                 }]
             },
-            test_unpackaged: {
+            scripts_to_test: {
                 files: [{
-                    expand: true,
-                    // cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
-                    src: '{,*/}*.html',
-                }, {
                     expand: true,
                     // cwd: 'app/',
                     dest: '<%= app.test_folder %>/',
                     // flatten: '<%= app.flatten_test_path =>',
                     src: '<%= dom_munger.data.jsRefs %>'
-                }, {
+                }]
+            },
+            css_to_test: {
+                files: [{
                     expand: true,
                     // dot: true,
                     dest: '<%= app.test_folder %>/',
                     // flatten: '<%= app.flatten_test_path =>',
                     src: '<%= dom_munger.data.cssRefs %>'
-                }, {
+                }]
+            },
+            app_assets_to_test: {
+                files: [{
                     expand: true,
                     cwd: 'app/',
                     dest: '<%= app.test_folder %>/app/',
                     // flatten: '<%= app.flatten_test_path =>',
-                    src: ['images/{,*/}*.*', 'fonts/*']
-                }, {
-                    expand: true,
-                    cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
-                    // flatten: '<%= app.flatten_test_path =>',
-                    src: ['images/{,*/}*.*']
-                }, {
-                    expand: true,
-                    cwd: 'app/',
-                    dest: '<%= app.test_folder %>/',
-                    // flatten: '<%= app.flatten_test_path =>',
-                    src: ['fonts/*']
+                    src: ['images/**/*.*', 'fonts/**/*.*']
                 }]
             },
             // Adding the copying of font-awesome fonts
             // Pre-destribution deprecated
-            bower_asset: {
+            test_bower_asset: {
                 files: [{
                     expand: true,
                     // dot: true,
-                    cwd: 'bower_asset/', // "app/" folder
-                    dest: '<%= app.test_folder %>/bower_asset',
-                    src: ['**/*.{css,js,eot,svg,ttf,woff,woff2,otf}']
-                }, {
+                    cwd: 'bower_assets/', // "app/" folder
+                    dest: '<%= app.test_folder %>/bower_assets/',
+                    src: ['**/*.{css,js,eot,ttf,svg,woff,woff2}']
+                }]
+            },
+            dist_bower_asset: {
+                files: [{
                     expand: true,
                     // dot: true,
-                    cwd: 'bower_asset/', // "app/" folder
-                    dest: '<%= app.dist_folder %>/fonts',
-                    src: ['**/*.{css,js,eot,svg,ttf,woff,woff2,otf}']
+                    cwd: 'bower_assets/', // "app/" folder
+                    dest: '<%= app.dist_folder %>/bower_assets/',
+                    src: ['**/*.{css,js,eot,ttf,svg,woff,woff2}']
                 }]
             },
             others: {
@@ -183,22 +172,22 @@ module.exports = function(grunt) {
                     src: ['.htaccess', 'docs/BSD-License', 'docs/LICENSE-MIT', 'README.md']
                 }]
             },
-            html: {
+            to_be_concatenated: {
                 files: [{
                     expand: true,
                     // dot: true,
-                    cwd: '',
+                    cwd: '.tmp/',
                     dest: '<%= app.test_folder %>/',
-                    src: ['/*.{htm,html}']
+                    src: ['{,*/}*.{css,js}']
                 }]
             },
             // If user is using HTML and not Jade in <%= app.dev_folder %> for development
-            app_html: {
+            app_html_to_root: {
                 files: [{
                     expand: true,
                     cwd: '<%= app.dev_folder %>/',
                     dest: '',
-                    src: ['<%= app.related_html_file %>']
+                    src: ['{,*/}*.{htm,html}']
                 }]
             }
         },
@@ -231,7 +220,8 @@ module.exports = function(grunt) {
                 // }],
 
                 src: '<%= app.related_html_file %>',
-                dest: 'test/<%= app.related_html_file %>' //update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
+                dest: 'test/<%= app.related_html_file %>'
+                    // update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
             },
             dist: {
                 options: {
@@ -249,11 +239,11 @@ module.exports = function(grunt) {
                     remove: ['link[rel="stylesheet"]', 'script[type="text/javascript"]'],
                     append: {
                         selector: 'head',
-                        html: '<link href="css/app.full.min.css" rel="stylesheet">'
+                        html: '<link href="css/app.all.min.css" rel="stylesheet">'
                     },
                     prepend: {
                         selector: 'application-engine',
-                        html: '<script src="js/app.full.min.js"></script>'
+                        html: '<script src="js/app.all.min.js"></script>'
                     }
                 },
                 src: '<%= app.related_html_file %>', //read from source <%= app.related_html_file %>
@@ -269,42 +259,41 @@ module.exports = function(grunt) {
                 separator: '\n\n',
                 stripBanners: true
             },
-            appcss: {
+            app_css: {
                 src: '<%= dom_munger.data.cssRefs %>',
-                dest: '.tmp/css/app.full.css'
+                dest: '.tmp/css/app.all.css'
             },
             // for custom CSS files compilation
             // after customizing the individual css files in bootstrap
-            bootstrap: {
-                src: ['frameworks/bootstrap/test/*.css'],
+            bootstrap_css: {
+                src: ['bower_assets/bootstrap/test/*.css'],
                 dest: 'app/css/bootstrap.css'
             },
             //Application's javascript dependencies in js/ folder
-            appjs: {
+            app_scripts: {
                 options: {
                     separator: ';\n\n',
                     banner: '<%= app.banner %>'
                 },
                 src: '<%= dom_munger.data.jsRefs %>',
-                dest: '.tmp/js/app.full.js'
+                dest: '.tmp/js/app.all.js'
             }
         },
 
-        // By default, your `index.html`'s <!-- Usemin block --> will take care of
-        // minification. These next options are pre-configured if you do not wish
-        // to use the Usemin blocks.
+        // By default, your `index.html`'s <!-- Usemin block --> will take care of minification.
+        // These next options are pre-configured if you do not wish to use the Usemin blocks.
         // Minify the CSS concentanated -- application.css
         cssmin: {
             options: {
-                banner: '<%= app.banner %>\n\n /* My minified css file */',
+                banner: '<%= app.banner %>\n\n/* My minified css file */',
                 keepSpecialComments: '1', // '*' or 1 or 0
                 report: 'min' // 'gzip'
             },
-            dist: {
-                src: '.tmp/css/app.full.css', //'<%= dom_munger.data.cssRefs %>'
-                dest: '.tmp/css/app.full.min.css'
+            dist_css: {
+                src: '.tmp/css/app.all.css', //'<%= dom_munger.data.cssRefs %>'
+                dest: '.tmp/css/app.all.min.css'
             },
-            bootstrap: {
+            bootstrap_css: {
                 options: {
                     banner: false
                 },
@@ -317,7 +306,7 @@ module.exports = function(grunt) {
         // Lets compress your JavaScript code now by adding a new task called uglify.
         // Uglify does what cssmin does to css, only with javascript.
         uglify: {
-            appjs: {
+            app_scripts: {
                 options: {
                     report: "min", //"gzip",
                     // sourceMap: true,
@@ -326,8 +315,8 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     // expand: true,
-                    src: '.tmp/js/app.full.js',
-                    dest: ".tmp/js/app.full.min.js"
+                    src: '.tmp/js/app.all.js',
+                    dest: ".tmp/js/app.all.min.js"
                 }]
             }
         },
@@ -355,7 +344,7 @@ module.exports = function(grunt) {
             },
 
             // Your custom LESS script will compiled by this
-            dev: {
+            for_app: {
                 options: {
                     report: 'min',
                     sourceMap: false,
@@ -450,7 +439,7 @@ module.exports = function(grunt) {
             gruntfile: {
                 src: 'Gruntfile.js'
             },
-            appjs: {
+            app_scripts: {
                 src: 'app/js/{,*/}*.js'
             },
             afterconcat: ['Gruntfile.js', 'app/js/{,*/}*.js']
@@ -500,36 +489,35 @@ module.exports = function(grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '{,*/}*.{htm,html}',
-                    'test/{,*/}*.{js,css}',
-                    'dist/{,*/}*.{js,css}',
-                    'app/**/*.{png,jpg,jpeg,gif,webp,svg,ttf,otf,woff}'
+                    'app/{,*/}*.{htm,html}',
+                    'app/**/*.{png,jpg,jpeg,gif,webp,mp3,m4a,mp4,ogg}',
+                    'app/**/*.{eot,otf,svg,tff,woff,woff2}'
                 ]
             },
             less: {
-                files: ["app/less/*.less"],
+                files: ["app/less/{,*/}*.less"],
                 tasks: ['less:dev']
             },
             css: {
                 files: ["app/**/*.css"],
-                tasks: ['dom_munger:test', 'concat:appcss', 'cssmin:dist', 'copy']
+                tasks: ['dom_munger:test', 'concat:app_css', 'copy:css_to_test']
             },
             scripts: {
                 files: ['app/{,*/}*.js', 'js/{,*/}*.js'],
-                tasks: ['dom_munger:test', 'concat:appjs', 'jshint:appjs', 'uglify', 'copy']
+                tasks: ['dom_munger:test', 'jshint:app_scripts', 'copy:scripts_to_test']
             },
             jade: {
-                files: ['**/*.jade'],
+                files: ['app/{,*/}*.jade'],
                 // if you do not want to concatinate them replace 'copy:dist' with 'copy:test_unpackaged'
-                tasks: ['jade', 'dom_munger:test', 'copy:test_unpackaged', 'dom_munger:dist', 'htmlmin']
+                tasks: ['jade', 'copy:html_to_test']
             },
             gruntfile: {
                 files: ['Gruntfile.js'],
-                tasks: ['default']
+                tasks: ['test']
             },
             // For Html files
             html: {
-                files: ['app/*.html', '<%= app.related_html_file %>'],
+                files: ['app/{,*/}*.{htm,html}', '*.html'],
                 tasks: ['test']
             }
         },
@@ -542,8 +530,8 @@ module.exports = function(grunt) {
                 }]
             },
             prefix: {
-                src: 'app/css/main.css',
-                dest: 'app/css/prefixed-main.css'
+                src: 'app/css/application.css',
+                dest: 'app/css/prefixed-application.css'
             }
         }
     });
@@ -553,8 +541,8 @@ module.exports = function(grunt) {
         'jshint:gruntfile',
         'clean', // clean all the files and folders [.tmp, dist and test]
         'jade', // IMPORTANT: uncomment this if you are using jade to write your html files
-        'copy:app_html',
-        'less:dev'
+        'copy:app_html_to_root',
+        'less:for_app'
     ]);
 
     // Just split bootstrap into several css mini files
@@ -573,6 +561,48 @@ module.exports = function(grunt) {
     // shortcut to bootstrap compiling task
     grunt.registerTask('bootstrap', ['bs'])
 
+    grunt.registerTask('test', [
+        'clean:test',
+        // 'css_selectors',
+        // 'concat:bootstrap', // -- wrap all bootstrap folders into one, being done above instead
+        'dom_munger:test', //get all required files to concat, cssmin and uglify
+        // 'concat:app_css',
+        // 'autoprefixer',
+        // 'cssmin',
+        'jshint:app_scripts',
+        // 'concat:app_scripts',
+        // 'uglify',
+        'copy:css_to_test',
+        'copy:scripts_to_test',
+        'copy:app_assets_to_test', // NEW PROCESS -- get all files from TEST
+        'copy:test_bower_asset',
+        // 'distribution', // To also package up the application for distribution
+        // 'htmlmin', // Testing does not require minification,
+        'copy:html_to_test' // to copy the html in the case that it fails
+    ]);
+
+    // Tasks for the app distrubution packaging
+    grunt.registerTask('distribution', [
+        'clean:dist',
+        // Process for the END DISTRUBUTED product
+        'dom_munger:dist',
+        'concat:app_css',
+        'autoprefixer',
+        'cssmin',
+        'jshint:app_scripts',
+        'concat:app_scripts',
+        'uglify',
+        'copy:components_to_dist',
+        'copy:app_assets_to_dist',
+        'copy:dist_bower_asset',
+        'copy:others',
+        'htmlmin'
+    ]);
+
+    // Same as rolling out a production version
+    grunt.registerTask('production', ['distribution']);
+    grunt.registerTask('dist', ['production']);
+
     // Serve the app and view changes live
     grunt.registerTask('serve', function(target) {
         if (target === 'dist') {
@@ -582,50 +612,10 @@ module.exports = function(grunt) {
         grunt.task.run(['start', 'test', 'connect:livereload', 'watch']);
     });
 
-    grunt.registerTask('test', [
-        'clean:test',
-        // 'css_selectors',
-        // 'concat:bootstrap', // -- wrap all bootstrap folders into one, being done above instead
-        'dom_munger:test', //get all required files to concat, cssmin and uglify
-        // 'concat:appcss',
-        // 'autoprefixer',
-        // 'cssmin',
-        'jshint:appjs',
-        // 'concat:appjs',
-        // 'uglify',
-        'copy:test_unpackaged', // NEW PROCESS -- get all files from TEST
-        'copy:bower_asset',
-        // 'distribution', // To also package up the application for distribution
-        // 'htmlmin', // Testing does not require minification,
-        'copy:html' // to copy the html in the case that it fails
-    ]);
-
-    // Tasks for the app distrubution packaging
-    grunt.registerTask('distribution', [
-        'clean:dist',
-        // Process for the END DISTRUBUTED product
-        'dom_munger:dist',
-        'concat:appcss',
-        'autoprefixer',
-        'cssmin',
-        'jshint:appjs',
-        'concat:appjs',
-        'uglify',
-        'copy:dist',
-        'copy:bower_asset',
-        'copy:bootstrap', // uncomment if you are using bootstrap, thus copy it's glyphicon fonts
-        'copy:others',
-        'htmlmin'
-    ]);
-
-    // Same as rolling out a production version
-    grunt.registerTask('production', ['distribution']);
-
     // Triggred when watch task is prompted, this is for extra info that you may need
     grunt.event.on('watch', function(action, filepath, target) {
         grunt.log.ok("--------- <(0_0)> info: " + filepath + " has " + action + " || TASK: " + target + " ----------");
     });
-    // grunt.registerTask('serve', ['express', 'open', 'watch:server']);
 
     // Tell Grunt what to do when we type "grunt" into the terminal
     // Could start watching for changes and running related tasks as per changes

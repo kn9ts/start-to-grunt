@@ -1,4 +1,3 @@
-
 <!--
 /**
  * Created by Eugene Mutai
@@ -16,9 +15,11 @@
  *     |__/                                      |___/               
  */
  
---><!DOCTYPE html>
+-->
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Knightstart -- Sample Page</title>
     <!-- Site Necessities -->
     <meta charset="utf-8">
@@ -33,8 +34,9 @@
     <link rel="stylesheet" href="bower_assets/fontawesome/css/font-awesome.css">
     <!-- Your stylesheets -->
     <link rel="stylesheet" href="app/css/application.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- if lt IE 10
     p.browsehappy
         | You are using an
@@ -45,71 +47,71 @@
         
     -->
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-8 col-xs-12">
-        <div class="container-fluid">
-          <div class="header">
-            <div class="row">
-              <div class="col-xs-12 col-sm-5 text-center">
-                <h3 class="text-muted">KnightStart</h3>
-              </div>
-              <div class="col-xs-12 col-sm-7">
-                <ul class="nav nav-pills small-padding">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="jumbotron text-center">
-            <h1>'Ayyee, 'Ayyee!</h1>
-            <p class="lead">Always a pleasure scaffolding your apps.</p>
-            <p><a href="http://twitter.com/jheneknights" class="btn btn-lg btn-default"><span class="fa fa-check-square-o">&nbsp;</span>Hapo Sawaa!</a></p>
-          </div>
-          <div class="row marketing">
-            <div class="col-lg-12">
-              <h2>Bootstrap
+        <div class="col-sm-offset-2 col-sm-8 col-xs-12">
+            <div class="container-fluid">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 text-center">
+                            <h3 class="text-muted">KnightStart</h3>
+                        </div>
+                        <div class="col-xs-12 col-sm-7">
+                            <ul class="nav nav-pills small-padding">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="jumbotron text-center">
+                    <h1>'Ayyee, 'Ayyee!</h1>
+                    <p class="lead">Always a pleasure scaffolding your apps.</p>
+                    <p><a href="#" class="btn btn-lg btn-default"><span class="fa fa-check-square-o">&nbsp;</span>Hapo Sawaa!</a></p>
+                </div>
+                <div class="row marketing">
+                    <div class="col-lg-12">
+                        <h2>Bootstrap
                 <p class="lead text-muted bg-warning small-padding curves">Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.</p>
               </h2>
-              <h2>GruntJS: small the JavaScript Task Runner
+                        <h2>GruntJS: small the JavaScript Task Runner
                 <p class="lead text-muted bg-warning small-padding curves">Why use a task runner? In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes.</p>
               </h2>
-            </div>
-          </div>
-          <div class="footer text-center">
-            <h4>
+                    </div>
+                </div>
+                <div class="footer text-center">
+                    <h4>
               <p class="bg-success text-center text-muted small-padding">© 2014, with&nbsp;<span class="fa fa-heart"></span>&nbsp;from the Eugene Mutai -- http://knightslab.com</p>
             </h4>
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <!-- App's dependencies(libraries) and business logics-->
     <application-engine description="all the application's JS files fall here">
-      <!-- jQuery library-->
-      <script type="text/javascript" src="bower_assets/jquery/dist/jquery.min.js"></script>
-      <script type="text/javascript" src="bower_assets/angularjs/angular.min.js"></script>
-      <!-- For cookies and touch support -->
-      <script type="text/javascript" src="bower_assets/jquery-cookie/jquery.cookie.js"></script>
-      <script type="text/javascript" src="bower_assets/hammerjs/hammer.min.js"></script>
-      <!-- for scrolling -->
-      <link rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css">
-      <script type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.concat.min.js"></script>
-      <!-- Time management -->
-      <script type="text/javascript" src="bower_assets/moment/min/moment.min.js"></script>
-      <!-- Your app functions script -->
-      <script type="text/javascript" src="app/js/application.js"></script>
-      <script>
+        <!-- jQuery library-->
+        <script type="text/javascript" src="bower_assets/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_assets/angularjs/angular.min.js"></script>
+        <!-- For cookies and touch support -->
+        <script type="text/javascript" src="bower_assets/jquery-cookie/jquery.cookie.js"></script>
+        <script type="text/javascript" src="bower_assets/hammerjs/hammer.min.js"></script>
+        <!-- for scrolling -->
+        <link rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css">
+        <script type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- Time management -->
+        <script type="text/javascript" src="js/libraries/momentjs/moment.min.js"></script>
+        <!-- Your app functions script -->
+        <script type="text/javascript" src="app/js/application.js"></script>
+        <script>
         //on document ready, as soon as it begins to load
         app.initialize();
-        
+
         // Google Analytics: change UA-XXXXX-X to be your site's ID. 
         (function(b, o, i, l, e, r) {
             b.GoogleAnalyticsObject = l;
             b[l] || (b[l] =
-            function() {
-            (b[l].q = b[l].q || []).push(arguments)
-            });
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
             b[l].l = +new Date;
             e = o.createElement(i);
             r = o.getElementsByTagName(i)[0];
@@ -118,8 +120,8 @@
         }(window, document, 'script', 'ga'));
         ga('create', 'UA-XXXXX-X');
         ga('send', 'pageview');
-        
-      </script>
+        </script>
     </application-engine>
-  </body>
+</body>
+
 </html>

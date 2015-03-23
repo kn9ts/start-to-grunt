@@ -16,6 +16,13 @@
  * @Version -
  */
 
+// Set cookie defaults
+if ($.cookie) $.cookie.defaults = {
+    path: '/',
+    expires: 432000 * 12,
+    domain: location.href
+};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -26,22 +33,25 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     init: function() {
-        document.addEventListener('deviceready', app.deviceready, false);
+        document.addEventListener("DOMContentLoaded", app.deviceready);
+        // Do the following functions 1st
+        $(document).ready(function() {
+            app.prepareFunctions('DOMContentLoaded');
+        });
     },
     // deviceready Event Handler
     //
-    // The scope of 'this' is the event. In order to call the 'prepareFunctions'
+    // The scope of 'app' is the event. In order to call the 'prepareFunctions'
     // function, we must explicity call 'app.prepareFunctions(...);'
     deviceready: function() {
-        app.prepareFunctions('deviceready');
+        app.doFunctions('DOMContentLoaded_has_loaded');
     },
     prepareFunctions: function(param) {
         //prepare these functions to do something (event binding, initialise etc...)
         //leave following function as last to run the stuff in the function after app preparations
-        //eg. check user sign up or something
-        app.doFunctions();
+        //eg. check user sign up or something   
     },
-    doFunctions: function() {
+    doFunctions: function(dom_loaded) {
         //do something (check if user is already signed in, check for internet connection, resize app e.t.c)
     },
     /** 

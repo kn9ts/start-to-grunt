@@ -70,7 +70,7 @@ html(lang="en")
                         h1 'Ayyee, 'Ayyee!
                         p.lead Always a pleasure scaffolding your apps.
                         p
-                            a.btn.btn-lg.btn-default(href='#')
+                            a.btn.btn-lg.btn-default(href='http://twitter.com/jheneknights')
                                 span.fa.fa-check-square-o &nbsp;
                                 | Hapo Sawaa!
                     
@@ -105,8 +105,12 @@ html(lang="en")
             script(type="text/javascript" src="bower_assets/jquery/dist/jquery.min.js")
 
             //- Angularjs MVC, MVVM framework 
-            //- script(type="text/javascript" src="bower_assets/angularjs/angular.min.js")
+            script(type="text/javascript" src="bower_assets/angularjs/angular.min.js")
             //- script(type="text/javascript" src="bower_assets/angularjs/angular-resource.min.js")
+
+            //- Knockout MVVM framework 
+            //- script(type="text/javascript" src="js/libraries/knockout-3.0.0.js")
+            //- script(type="text/javascript" src="js/plugins/knockout.validation.js")
 
             // For cookies and touch support 
             script(type="text/javascript" src="bower_assets/jquery-cookie/jquery.cookie.js")
@@ -116,21 +120,14 @@ html(lang="en")
             link(rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css")
             script(type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.concat.min.js")
 
-            //- Knockout MVVM framework 
-            //- script(type="text/javascript" src="js/libraries/knockout-3.0.0.js")
-            //- script(type="text/javascript" src="js/plugins/knockout.validation.js")
-
             // Time management 
-            script(type="text/javascript" src="js/libraries/momentjs/moment.min.js")
+            script(type="text/javascript" src="bower_assets/moment/min/moment.min.js")
 
             // Your app functions script 
             script(type="text/javascript" src="app/js/application.js")
             script.
                 //on document ready, as soon as it begins to load
-                $(function() {
-                    // Lungo.init();
-                    $(window).on("load", app.initialize);
-                });
+                app.initialize();
 
                 // Google Analytics: change UA-XXXXX-X to be your site's ID. 
                 (function(b, o, i, l, e, r) {

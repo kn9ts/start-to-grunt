@@ -132,4 +132,7 @@ DerivedData
 *.hmap
 *.ipa
 
-
+## Knightstart itself
+test/
+dist/
+index.html
