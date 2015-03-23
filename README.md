@@ -100,7 +100,7 @@ Yes, you can use the normal/old html way of writing markup. Just rename 'file_na
 ### Though you could have the new girl in town: Jade Support
 But you should __STOP__ WRITTING TIRESOME HTML. You do get tired opening and closing tags, dont you?! Jade fastens front-end developement by at least 5 times. Try [Jade](http://jade-lang.com) today.
 
-It is supported off the box. No need to configure anything. Start writing JADE today. Chuck your phone and come with a 'am leaving you' message for HTML.
+It is supported off the box. No need to configure anything. Start writing JADE today. Chuck your phone and come with up a _'am leaving you'_ message for HTML.
 
 
 ### Intergrated Tools - Deprecated in favour of [Bower](http://bower.io):
