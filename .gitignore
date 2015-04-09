@@ -173,6 +173,8 @@ DerivedData
 
 
 ### Knightstart
+.tmp/
 test/
 dist/
 bower_assets/
+index.html
