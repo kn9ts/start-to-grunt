@@ -33,11 +33,11 @@ Majors:
 
 * Node.js - [Click here](http://nodejs.org) to install
 
-Secondaries:
+Secondaries(click for further information):
 
-* npm
-* gruntjs
-* bower
+* npm (installed together with node.js, usually bundled in it)
+* [gruntjs](http://gruntjs.com) (part of the instructions below)
+* [bower](http://bower.io)
 
 ## Cordova applications
 
@@ -65,6 +65,11 @@ __To download the boilerplate__
 $ git clone https://github.com/jheneknights/knightstart name_of_your_project
 ```
 
+After cloning/copying the boilerplate, please get into your project's directory/folder
+```
+$ cd name_of_your_project
+```
+
 __To install Grunt-CLI (Command Line) plugin/tool__
 ```bash
 $ sudo npm install -g grunt-cli
@@ -75,7 +80,8 @@ __To install grunt/project dependecies__
 $ npm install
 ```
 
-__To install defualt project front-end assets/libraries eg. bootstrap, jQuery...__
+__To install default project front-end assets/libraries eg. bootstrap, jQuery...__
+__NOTE:__ This downloads CSS and JavaScript libraries that usually default in most projects nowdays. They are downloaded into the *__bower_assets__* folder that can be referenced in the HTML you are editting as you would have with any CSS and JavaScript files in your project, only that this way we give your application a good structure and files seperation.
 
 ```bash
 $ bower install
@@ -89,7 +95,7 @@ This will install all the things you need for running the grunt-tasks automatica
 
 > *__Note:__ As stated prior. You need to have a running node.js and ruby along with npm. Please install this before setting up KnightStart in your project's directory. Ruby comes default in most systems nowdays so I believe you do have that already.*
 
-##### Finally Build and launch
+### Finally Build and launch
 
 Now you can start developing your site. Therefore use the __GruntJS__ defualt task _(type in your Terminal and press ENTER)_:
 
@@ -104,7 +110,7 @@ This will create a __test__ and __dist__ folder with a test and distribution app
 
 One of the features of the __GruntJS watch plugin__ is that it can automatically reload changes. It is very helpful if we are making markup, style and javascript changes and want to get instant feedback without pressing the browser refresh button.
 
-To create a test and view the test version which a compiled and cleaned dev version of the project run:
+To create a test and view the test version which is a compiled and cleaned up developement version of the project. So run:
 
 ```bash
 $ grunt serve
