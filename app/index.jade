@@ -7,20 +7,20 @@
      * Time: 12:45 PM
      * Description: Simple HTML5 application template to get you started.
      * ------ "How does somebody know what they want if they haven’t even seen it?" - Steve Jobs. ------
-     *        _ _                       _  __      _       _     _       
-     *       (_) |__   ___ _ __   ___  | |/ /_ __ (_) __ _| |__ | |_ ___ 
+     *        _ _                       _  __      _       _     _
+     *       (_) |__   ___ _ __   ___  | |/ /_ __ (_) __ _| |__ | |_ ___
      *       | | '_ \ / _ \ '_ \ / _ \ | ' /| '_ \| |/ _` | '_ \| __/ __|
      *       | | | | |  __/ | | |  __/ | . \| | | | | (_| | | | | |_\__ \
      *      _/ |_| |_|\___|_| |_|\___| |_|\_\_| |_|_|\__, |_| |_|\__|___/
-     *     |__/                                      |___/               
+     *     |__/                                      |___/
      */
 
 doctype html
 html(lang="en")
     head
         title Knightstart -- Sample Page
-        
-        // Site Necessities 
+
+        // Site Necessities
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes')
         meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
@@ -28,21 +28,21 @@ html(lang="en")
         meta(name='description', content='')
         meta(name='keywords', content='')
         meta(http-equiv='cleartype', content='on')
-        
-        //- Favicons 
+
+        //- Favicons
         //- Place favicon.ico and apple-touch-icon.png in the root directory
         //- link(rel="shortcut icon" type="image/png" href="")
         //- link(rel="shortcut icon" type="image/x-icon" href="")
-        
-        //- Twitter Bootstrap 
+
+        //- Twitter Bootstrap
         //- Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.
         //- Bootstrap easily and efficiently scales your project with one code base, from phones to tablets to desktops.
         // http://getbootstrap.com/components
         link(rel='stylesheet', href='bower_assets/bootstrap/dist/css/bootstrap.css')
         //- link(rel="stylesheet" href="bower_assets/bootstrap/dist/css/bootstrap-theme.css")
         link(rel='stylesheet', href='bower_assets/fontawesome/css/font-awesome.css')
-        
-        // Your stylesheets 
+
+        // Your stylesheets
         link(rel='stylesheet', href='app/css/application.css')
 
     body
@@ -72,64 +72,64 @@ html(lang="en")
                         p
                             a.btn.btn-lg.btn-default(href='http://twitter.com/jheneknights')
                                 span.fa.fa-check-square-o &nbsp;
-                                | Hapo Sawaa!
-                    
+                                | Hapo Sawaa Kaabisa!
+
                     .row.marketing
                         .col-lg-12
                             h2 Bootstrap
                                 p.lead.text-muted.bg-warning.small-padding.curves
                                     | Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.
-                            
+
                             //- h2 Modernizr
                                 p.lead.text-muted.bg-warning.small-padding.curves Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
-                            
+
                             h2 GruntJS: small the JavaScript Task Runner
                                 p.lead.text-muted.bg-warning.small-padding.curves
                                     | Why use a task runner? In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes.
-                    
+
                     .footer.text-center
                         h4
                             p.bg-success.text-center.text-muted.small-padding
                                 | © 2014, with&nbsp;
-                                span.fa.fa-heart 
+                                span.fa.fa-heart
                                 | &nbsp;from the Eugene Mutai -- http://knightslab.com
-                
+
 
         // App's dependencies(libraries) and business logics
         application-engine(description="all the application's JS files fall here")
-            
+
             //- Base engine, for Phonegap app, uncomment this if you are using phonegap
             //- script(type="text/javascript" src="cordova.js")
 
             // jQuery library
             script(type="text/javascript" src="bower_assets/jquery/dist/jquery.min.js")
 
-            //- Angularjs MVC, MVVM framework 
+            //- Angularjs MVC, MVVM framework
             script(type="text/javascript" src="bower_assets/angularjs/angular.min.js")
             //- script(type="text/javascript" src="bower_assets/angularjs/angular-resource.min.js")
 
-            //- Knockout MVVM framework 
+            //- Knockout MVVM framework
             //- script(type="text/javascript" src="js/libraries/knockout-3.0.0.js")
             //- script(type="text/javascript" src="js/plugins/knockout.validation.js")
 
-            // For cookies and touch support 
+            // For cookies and touch support
             script(type="text/javascript" src="bower_assets/jquery-cookie/jquery.cookie.js")
             script(type="text/javascript" src="bower_assets/hammerjs/hammer.min.js")
 
-            // for scrolling 
+            // for scrolling
             link(rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css")
             script(type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.concat.min.js")
 
-            // Time management 
+            // Time management
             script(type="text/javascript" src="bower_assets/moment/min/moment.min.js")
 
-            // Your app functions script 
+            // Your app functions script
             script(type="text/javascript" src="app/js/application.js")
             script.
                 //on document ready, as soon as it begins to load
                 app.initialize();
 
-                // Google Analytics: change UA-XXXXX-X to be your site's ID. 
+                // Google Analytics: change UA-XXXXX-X to be your site's ID.
                 (function(b, o, i, l, e, r) {
                     b.GoogleAnalyticsObject = l;
                     b[l] || (b[l] =
@@ -144,7 +144,7 @@ html(lang="en")
                 }(window, document, 'script', 'ga'));
                 ga('create', 'UA-XXXXX-X');
                 ga('send', 'pageview');
-            
-            //- Get all files to be used with gruntjs 
+
+            //- Get all files to be used with gruntjs
             //- script(src='grunt/gruntconfig_assets.js')
             //- script(src='http://localhost:35729/livereload.js')

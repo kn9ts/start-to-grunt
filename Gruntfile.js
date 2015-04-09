@@ -11,15 +11,15 @@
  */
 
 // Being a frontend developer
-// if you haven’t yet added Grunt.js to your workflow, 
+// if you haven’t yet added Grunt.js to your workflow,
 // then you are seriously missing something.
 
-//      _ _                       _  __      _       _     _       
-//     | | |__   ___ _ __   ___  | |/ /_ __ (_) __ _| |__ | |_ ___ 
+//      _ _                       _  __      _       _     _
+//     | | |__   ___ _ __   ___  | |/ /_ __ (_) __ _| |__ | |_ ___
 //  _  | | '_ \ / _ \ '_ \ / _ \ | ' /| '_ \| |/ _` | '_ \| __/ __|
 // | |_| | | | |  __/ | | |  __/ | . \| | | | | (_| | | | | |_\__ \
 //  \___/|_| |_|\___|_| |_|\___| |_|\_\_| |_|_|\__, |_| |_|\__|___/
-//                                             |___/               
+//                                             |___/
 
 'use strict';
 
@@ -302,7 +302,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // Your CSS has now been combined into a single file and compressed. 
+        // Your CSS has now been combined into a single file and compressed.
         // Lets compress your JavaScript code now by adding a new task called uglify.
         // Uglify does what cssmin does to css, only with javascript.
         uglify: {
@@ -447,7 +447,7 @@ module.exports = function(grunt) {
 
         // The command should start server and the should open http://localhost:1500/ in your browser.
         // You can also try changing less / html file, the changes should be reflected on browser without refreshing the page.
-        // livereload and starting a development server. 
+        // livereload and starting a development server.
         connect: {
             options: {
                 port: 1515,
@@ -458,7 +458,8 @@ module.exports = function(grunt) {
             livereload: {
                 options: {
                     open: true,
-                    base: ['<%= app.test_folder %>']
+                    base: ['<%= app.test_folder %>'],
+                    livereload: true
                 }
             },
             dist: {
@@ -489,9 +490,10 @@ module.exports = function(grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    'app/{,*/}*.{htm,html}',
-                    'app/**/*.{png,jpg,jpeg,gif,webp,mp3,m4a,mp4,ogg}',
-                    'app/**/*.{eot,otf,svg,tff,woff,woff2}'
+                    'test/{,*/}*.{htm,html}',
+                    'test/**/*.{css,less}',
+                    'test/**/*.{png,jpg,jpeg,gif,webp,mp3,m4a,mp4,ogg}',
+                    'test/**/*.{eot,otf,svg,tff,woff,woff2}'
                 ]
             },
             less: {
