@@ -38,12 +38,12 @@ html(lang="en")
         //- Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.
         //- Bootstrap easily and efficiently scales your project with one code base, from phones to tablets to desktops.
         // http://getbootstrap.com/components
-        link(rel='stylesheet', href='bower_assets/bootstrap/dist/css/bootstrap.css')
+        link(rel='stylesheet', href='../bower_assets/bootstrap/dist/css/bootstrap.css')
         //- link(rel="stylesheet" href="bower_assets/bootstrap/dist/css/bootstrap-theme.css")
-        link(rel='stylesheet', href='bower_assets/fontawesome/css/font-awesome.css')
+        link(rel='stylesheet', href='../bower_assets/fontawesome/css/font-awesome.css')
 
         // Your stylesheets
-        link(rel='stylesheet', href='app/css/application.css')
+        link(rel='stylesheet', href='../app/css/application.css')
 
     body
         // if lt IE 10
@@ -102,29 +102,25 @@ html(lang="en")
             //- script(type="text/javascript" src="cordova.js")
 
             // jQuery library
-            script(type="text/javascript" src="bower_assets/jquery/dist/jquery.min.js")
+            script(type="text/javascript" src="../bower_assets/jquery/dist/jquery.min.js")
 
             //- Angularjs MVC, MVVM framework
-            script(type="text/javascript" src="bower_assets/angularjs/angular.min.js")
-            //- script(type="text/javascript" src="bower_assets/angularjs/angular-resource.min.js")
+            script(type="text/javascript" src="../bower_assets/angularjs/angular.min.js")
+            //- script(type="text/javascript" src="../bower_assets/angularjs/angular-resource.min.js")
 
             //- Knockout MVVM framework
             //- script(type="text/javascript" src="js/libraries/knockout-3.0.0.js")
             //- script(type="text/javascript" src="js/plugins/knockout.validation.js")
 
             // For cookies and touch support
-            script(type="text/javascript" src="bower_assets/jquery-cookie/jquery.cookie.js")
-            script(type="text/javascript" src="bower_assets/hammerjs/hammer.min.js")
-
-            // for scrolling
-            link(rel="stylesheet" href="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.css")
-            script(type="text/javascript" src="js/scrolling/mCustomScroller/jquery.mCustomScrollbar.concat.min.js")
+            script(type="text/javascript" src="../bower_assets/jquery-cookie/jquery.cookie.js")
+            script(type="text/javascript" src="../bower_assets/hammerjs/hammer.min.js")
 
             // Time management
-            script(type="text/javascript" src="bower_assets/moment/min/moment.min.js")
+            script(type="text/javascript" src="../bower_assets/moment/min/moment.min.js")
 
             // Your app functions script
-            script(type="text/javascript" src="app/js/application.js")
+            script(type="text/javascript" src="../app/js/application.js")
             script.
                 //on document ready, as soon as it begins to load
                 app.initialize();

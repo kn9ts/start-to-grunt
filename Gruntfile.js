@@ -198,28 +198,20 @@ module.exports = function(grunt) {
         // Then can manipulate it using DOM queries
         // Can also be used to extract all related files for concatination and minification
         dom_munger: {
-            options: {
-                read: [{
-                    selector: 'link[rel="stylesheet"]',
-                    attribute: 'href',
-                    writeto: 'cssRefs',
-                    isPath: true
-                }, {
-                    selector: 'script[type="text/javascript"]',
-                    attribute: 'src',
-                    writeto: 'jsRefs',
-                    isPath: true
-                }],
-            },
             test: {
-                // Takes all the html files that have been compiled and sends it to the <%= app.test_folder %> folder
-                // files: [{
-                //     expand: true,
-                //     cwd: '', // in the root dir
-                //     src: '*.html',
-                //     dest: '<%= app.test_folder %>/',
-                //     ext: '.html'
-                // }],
+                options: {
+                    read: [{
+                        selector: 'link[rel="stylesheet"]',
+                        attribute: 'href',
+                        writeto: 'cssRefs',
+                        isPath: true
+                    }, {
+                        selector: 'script[type="text/javascript"]',
+                        attribute: 'src',
+                        writeto: 'jsRefs',
+                        isPath: true
+                    }],
+                },
                 // read from source <%= app.related_html_file %>
                 src: 'html/<%= app.related_html_file %>',
                 // update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
@@ -227,6 +219,17 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
+                    read: [{
+                        selector: 'link[rel="stylesheet"]',
+                        attribute: 'href',
+                        writeto: 'cssRefs',
+                        isPath: true
+                    }, {
+                        selector: 'script[type="text/javascript"]',
+                        attribute: 'src',
+                        writeto: 'jsRefs',
+                        isPath: true
+                    }],
                     remove: ['link[rel="stylesheet"]', 'script[type="text/javascript"]'],
                     append: {
                         selector: 'head',
