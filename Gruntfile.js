@@ -59,7 +59,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         app: {
-            file_name: 'index',
+            file_name: 'login',
             file_being_editted: '<%= app.file_name %>.jade', // Set the current file that you are editing
             // Incase if dev is using html, make the html be copied
             // to .tmp/ folder as task related to html can access it from here
@@ -82,7 +82,8 @@ module.exports = function(grunt) {
                     src: ['.tmp', '<%= app.dist_folder %>', '!<%= app.dist_folder %>/.git*']
                 }]
             },
-            test: ['.tmp', '<%= app.test_folder %>']
+            test: ['.tmp', '<%= app.test_folder %>'],
+            htmt_from_root: ['./*.html']
         },
 
         copy: {
@@ -96,7 +97,7 @@ module.exports = function(grunt) {
                 }, {
                     expand: true,
                     // dot: true,
-                    cwd: '',
+                    cwd: './app/',
                     dest: '<%= app.dist_folder %>/',
                     src: ['*.{htm,html}']
                 }]
@@ -113,9 +114,9 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     // dot: true,
-                    cwd: '',
+                    cwd: './app/',
                     dest: '<%= app.test_folder %>/',
-                    src: ['./*.{htm,html}']
+                    src: ['*.{htm,html}']
                 }]
             },
             scripts_to_test: {
@@ -398,7 +399,7 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= app.test_folder %>/',
+                    cwd: '<%= app.dev_folder %>/',
                     src: ['{,*/}*.html'],
                     dest: '<%= app.dist_folder %>/',
                     // ext: '.min.html',
@@ -417,9 +418,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                         expand: true,
-                        cwd: 'app/',
-                        src: '*.jade',
-                        dest: '',
+                        cwd: 'app/jade/',
+                        src: '**/*.jade',
+                        dest: 'app/',
                         ext: '.html'
 
                         // The path to compile to and the path to where to get the jade files
@@ -544,7 +545,7 @@ module.exports = function(grunt) {
         'clean', // clean all the files and folders [.tmp, dist and test]
         'jade', // IMPORTANT: uncomment this if you are using jade to write your html files
         'copy:app_html_to_root',
-        'less:for_app'
+        // 'less:for_app'
     ]);
 
     // Just split bootstrap into several css mini files
@@ -616,6 +617,13 @@ module.exports = function(grunt) {
 
     // Triggred when watch task is prompted, this is for extra info that you may need
     grunt.event.on('watch', function(action, filepath, target) {
+        // On saving, get the file saved and check if it's HTML/JADE
+        // This enables GruntJS to keep track of the variable of the file is being editted at the moment
+        if (filepath.indexOf('html') > -1 || filepath.indexOf('jade') > -1) {
+            var file_exploded = filepath.split('/');
+            grunt.config.set('app.related_html_file', file_exploded.length > 1 ? file_exploded[file_exploded.length - 1]: file_exploded);
+            grunt.log.ok('--------- HTML file being editted has been updated: ' + grunt.config.get('app.related_html_file') + ' ------------');
+        }
         grunt.log.ok("--------- <(0_0)> info: " + filepath + " has " + action + " || TASK: " + target + " ----------");
     });
 
