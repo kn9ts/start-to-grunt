@@ -100,7 +100,7 @@ module.exports = function(grunt) {
                     // dot: true,
                     cwd: './app/',
                     dest: '<%= app.dist_folder %>/',
-                    src: ['*.{htm,html}']
+                    src: ['*.{htm,html}', '!<%= app.related_html_file %>']
                 }]
             },
             app_assets_to_dist: {
@@ -198,20 +198,20 @@ module.exports = function(grunt) {
         // Then can manipulate it using DOM queries
         // Can also be used to extract all related files for concatination and minification
         dom_munger: {
+            options: {
+                read: [{
+                    selector: 'link[rel="stylesheet"]',
+                    attribute: 'href',
+                    writeto: 'cssRefs',
+                    isPath: true
+                }, {
+                    selector: 'script[type="text/javascript"]',
+                    attribute: 'src',
+                    writeto: 'jsRefs',
+                    isPath: true
+                }],
+            },
             test: {
-                options: {
-                    read: [{
-                        selector: 'link[rel="stylesheet"]',
-                        attribute: 'href',
-                        writeto: 'cssRefs',
-                        isPath: true
-                    }, {
-                        selector: 'script[type="text/javascript"]',
-                        attribute: 'src',
-                        writeto: 'jsRefs',
-                        isPath: true
-                    }],
-                },
                 // Takes all the html files that have been compiled and sends it to the <%= app.test_folder %> folder
                 // files: [{
                 //     expand: true,
@@ -220,24 +220,13 @@ module.exports = function(grunt) {
                 //     dest: '<%= app.test_folder %>/',
                 //     ext: '.html'
                 // }],
-
+                // read from source <%= app.related_html_file %>
                 src: 'html/<%= app.related_html_file %>',
+                // update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
                 dest: 'test/<%= app.related_html_file %>'
-                    // update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
             },
             dist: {
                 options: {
-                    read: [{
-                        selector: 'link[rel="stylesheet"]',
-                        attribute: 'href',
-                        writeto: 'cssRefs',
-                        isPath: true
-                    }, {
-                        selector: 'script[type="text/javascript"]',
-                        attribute: 'src',
-                        writeto: 'jsRefs',
-                        isPath: true
-                    }],
                     remove: ['link[rel="stylesheet"]', 'script[type="text/javascript"]'],
                     append: {
                         selector: 'head',
@@ -248,8 +237,8 @@ module.exports = function(grunt) {
                         html: '<script src="js/app.all.min.js"></script>'
                     }
                 },
-                src: 'html/<%= app.related_html_file %>', //read from source <%= app.related_html_file %>
-                dest: 'dist/<%= app.related_html_file %>', //update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
+                src: 'html/<%= app.related_html_file %>',
+                dest: 'dist/<%= app.related_html_file %>'
             }
         },
 
@@ -418,7 +407,7 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= app.dev_folder %>/',
+                    cwd: '<%= app.dist_folder %>/',
                     src: ['{,*/}*.html'],
                     dest: '<%= app.dist_folder %>/',
                     // ext: '.min.html',
@@ -607,6 +596,7 @@ module.exports = function(grunt) {
     // Tasks for the app distrubution packaging
     grunt.registerTask('distribution', [
         'clean:dist',
+        // 'css_selectors',
         'csslint:strict',
         // Process for the END DISTRUBUTED product
         'dom_munger:dist',
@@ -620,7 +610,7 @@ module.exports = function(grunt) {
         'copy:app_assets_to_dist',
         'copy:dist_bower_asset',
         'copy:others',
-        'htmlmin'
+        // 'htmlmin'
     ]);
 
     // Same as rolling out a production version
