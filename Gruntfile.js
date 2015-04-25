@@ -59,7 +59,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         app: {
-            file_name: 'login',
+            file_name: 'index',
             file_being_editted: '<%= app.file_name %>.jade', // Set the current file that you are editing
             // Incase if dev is using html, make the html be copied
             // to .tmp/ folder as task related to html can access it from here
@@ -621,7 +621,7 @@ module.exports = function(grunt) {
         // This enables GruntJS to keep track of the variable of the file is being editted at the moment
         if (filepath.indexOf('html') > -1 || filepath.indexOf('jade') > -1) {
             var file_exploded = filepath.split('/');
-            grunt.config.set('app.related_html_file', file_exploded.length > 1 ? file_exploded[file_exploded.length - 1]: file_exploded);
+            grunt.config.set('app.related_html_file', file_exploded.length > 1 ? file_exploded[file_exploded.length - 1] : file_exploded);
             grunt.log.ok('--------- HTML file being editted has been updated: ' + grunt.config.get('app.related_html_file') + ' ------------');
         }
         grunt.log.ok("--------- <(0_0)> info: " + filepath + " has " + action + " || TASK: " + target + " ----------");
