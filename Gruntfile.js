@@ -187,7 +187,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= app.dev_folder %>/',
-                    dest: '',
+                    dest: 'html',
                     src: ['{,*/}*.{htm,html}']
                 }]
             }
@@ -220,7 +220,7 @@ module.exports = function(grunt) {
                 //     ext: '.html'
                 // }],
 
-                src: '<%= app.related_html_file %>',
+                src: 'html/<%= app.related_html_file %>',
                 dest: 'test/<%= app.related_html_file %>'
                     // update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
             },
@@ -247,7 +247,7 @@ module.exports = function(grunt) {
                         html: '<script src="js/app.all.min.js"></script>'
                     }
                 },
-                src: '<%= app.related_html_file %>', //read from source <%= app.related_html_file %>
+                src: 'html/<%= app.related_html_file %>', //read from source <%= app.related_html_file %>
                 dest: 'dist/<%= app.related_html_file %>', //update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
             }
         },

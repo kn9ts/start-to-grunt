@@ -177,4 +177,4 @@ DerivedData
 test/
 dist/
 bower_assets/
-index.html
+*.html
