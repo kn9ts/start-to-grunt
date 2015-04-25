@@ -47,6 +47,7 @@ module.exports = function(grunt) {
     // -------------------------------------------------------------
     // grunt.loadNpmTasks('grunt-contrib-concat');
     // grunt.loadNpmTasks('grunt-contrib-cssmin');
+    // grunt.loadNpmTasks('grunt-contrib-csslint');
     // grunt.loadNpmTasks('grunt-contrib-jade');
     // grunt.loadNpmTasks('grunt-contrib-uglify');
     // grunt.loadNpmTasks('grunt-contrib-jade');
@@ -300,6 +301,24 @@ module.exports = function(grunt) {
                 },
                 src: 'app/css/bootstrap.css',
                 dest: 'app/css/bootstrap.min.css'
+            }
+        },
+
+        csslint: {
+            options: {
+                csslintrc: '.csslintrc'
+            },
+            strict: {
+                options: {
+                    import: 2
+                },
+                src: ['app/css/**/*.css']
+            },
+            lax: {
+                options: {
+                    import: false
+                },
+                src: ['app/css/**/*.css']
             }
         },
 
@@ -567,6 +586,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', [
         'clean:test',
         // 'css_selectors',
+        'csslint:strict',
         // 'concat:bootstrap', // -- wrap all bootstrap folders into one, being done above instead
         'dom_munger:test', //get all required files to concat, cssmin and uglify
         // 'concat:app_css',
@@ -587,6 +607,7 @@ module.exports = function(grunt) {
     // Tasks for the app distrubution packaging
     grunt.registerTask('distribution', [
         'clean:dist',
+        'csslint:strict',
         // Process for the END DISTRUBUTED product
         'dom_munger:dist',
         'concat:app_css',
