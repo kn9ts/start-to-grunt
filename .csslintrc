@@ -1,0 +1,57 @@
+{
+
+    // Don't use adjoining classes
+    "adjoining-classes": false,
+    "box-sizing": false,
+    // Beware of broken box models
+    "box-model": false,
+    "bulletproof-font-face": false,
+    // Include all compatible vendor prefixes
+    "compatible-vendor-prefixes": false,
+    // Use correct properties for a display
+    "display-property-grouping": false,
+    "duplicate-background-images": false,
+    // Avoid duplicate properties
+    "duplicate-properties": true,
+    // Remove empty rules
+    "empty-rules": true,
+    // Parsing errors should be fixed
+    "errors": true,
+    "fallback-colors": false,
+    // Don't use too may font-size declarations
+    "font-sizes": false,
+    // Don't use too many web fonts
+    "font-faces": false,
+    // Don't use too many floats
+    "floats": false,
+    // CSS gradients require all browser prefixes
+    "gradients": false,
+    // Don't use IDs in selectors
+    "ids": false,
+    // Don't use @import
+    "import": false,
+    // Don't use !important
+    "important": false,
+    "known-properties": false,
+    "outline-none": false,
+    "overqualified-elements": false,
+    "qualified-headings": false,
+    // Avoid selectors that look like regular expressions
+    "regex-selectors": false,
+    "rules-count": false,
+    "selector-max": false,
+    "selector-max-approaching": false,
+    // Require shorthand properties
+    "shorthand": false,
+    "star-property-hack": false,
+    "text-indent": false,
+    "underscore-property-hack": false,
+    // Heading styles should only be defined once
+    "unique-headings": false,
+    "universal-selector": false,
+    "unqualified-attributes": false,
+    // Vendor prefixed properties should also have the standard
+    "vendor-prefix": false,
+    // Zero values don't need units
+    "zero-units": false
+}
