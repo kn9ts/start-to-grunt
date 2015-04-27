@@ -1,0 +1,33 @@
+<!-- App's dependencies(libraries) and business logics-->
+<application-engine description="all the application's JS files fall here">
+    <!-- jQuery library-->
+    <script type="text/javascript" src="../bower_assets/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_assets/angularjs/angular.min.js"></script>
+    <!-- For cookies and touch support-->
+    <script type="text/javascript" src="../bower_assets/jquery-cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../bower_assets/hammerjs/hammer.min.js"></script>
+    <!-- Time management-->
+    <script type="text/javascript" src="../bower_assets/moment/min/moment.min.js"></script>
+    <!-- Your app functions script-->
+    <script type="text/javascript" src="../app/js/application.js"></script>
+    <script>
+    //on document ready, as soon as it begins to load
+    app.initialize();
+
+    // Google Analytics: change UA-XXXXX-X to be your site's ID.
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+</application-engine>
