@@ -43,6 +43,7 @@ html(lang="en")
         link(rel='stylesheet', href='../bower_assets/fontawesome/css/font-awesome.css')
 
         // Your stylesheets
+        link(rel='stylesheet', href='../app/css/utilities.css')
         link(rel='stylesheet', href='../app/css/application.css')
 
     body
@@ -55,44 +56,57 @@ html(lang="en")
                 | to improve your experience.
 
         .row
-            .col-sm-offset-2.col-sm-8.col-xs-12
-                .container-fluid
-                    .header
-                        .row
-                            .col-xs-12.col-sm-5.text-center
-                                h3.text-muted KnightStart
-                            .col-xs-12.col-sm-7
-                                ul.nav.nav-pills.small-padding
-                                    li.active: a(href='#') Home
-                                    li: a(href='#') About
-                                    li: a(href='#') Contact
-                    .jumbotron.text-center
-                        h1 'Ayyee, 'Ayyee!
-                        p.lead Always a pleasure scaffolding your apps.
-                        p
-                            a.btn.btn-lg.btn-default(href='http://twitter.com/jheneknights')
-                                span.fa.fa-check-square-o &nbsp;
-                                | Hapo Sawaa Kaabisa!
+            .col-sm-12.col-md-12
+                .jumbotron.red-bg.white
+                    .container
+                        h1.bold.uppercase Knightstart
+                        p If you are a programmer, QA or student in IT that loves playing card games then code:deck is for you! code:deck is a standard playing card deck sporting a stylish modern design. Each individual card features a code excerpt describing it in one of many programming languages. We tried to compile a wide selection of programming languages - from generally acknowledged staples and utility languages in software development to newer alternatives and weird curiosities!
 
-                    .row.marketing
-                        .col-lg-12
-                            h2 Bootstrap
-                                p.lead.text-muted.bg-warning.small-padding.curves
-                                    | Sleek, intuitive, and powerful mobile first front-end frameworks for faster and easier web development.
+                        a.btn.btn-md.btn-default(href="")
+                            i.fa.fa-file-archive-o
+                            | Download .zip
+                        a.btn.btn-md.btn-default(href="")
+                            i.fa.fa-file-archive-o
+                            | Download .tar.gz
+                        a.btn.btn-md.btn-default.pull-right(href="")
+                            i.fa.fa-github-alt
+                            | View on Github
 
-                            //- h2 Modernizr
-                                p.lead.text-muted.bg-warning.small-padding.curves Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
+            .col-sm-12.col-md-12
+                .row.pale-grey-bg
+                    .col-xs-12.col-md-4
+                        .affix-top
+                            h4.text-center
+                                ul
+                                    li
+                                        a(href="javascript:;") What it does for you?
+                                    li
+                                        a(href="javascript:;") How do I use it?
+                                    li
+                                        a(href="javascript:;") Anything Left out.
 
-                            h2 GruntJS: small the JavaScript Task Runner
-                                p.lead.text-muted.bg-warning.small-padding.curves
-                                    | Why use a task runner? In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes.
+                    .col-xs-12.col-md-8.padding.white-bg
+                        .content.content-fluid
+                            p If you are a programmer, QA or student in IT that loves playing card games then code:deck is for you! code:deck is a standard playing card deck sporting a stylish modern design. Each individual card features a code excerpt describing it in one of many programming languages. We tried to compile a wide selection of programming languages - from generally acknowledged staples and utility languages in software development to newer alternatives and weird curiosities!
 
-                    .footer.text-center
-                        h4
-                            p.bg-success.text-center.text-muted.small-padding
-                                | © 2014, with&nbsp;
-                                span.fa.fa-heart
-                                | &nbsp;from the Eugene Mutai -- http://knightslab.com
+                            p If you are a programmer, QA or student in IT that loves playing card games then code:deck is for you! code:deck is a standard playing card deck sporting a stylish modern design. Each individual card features a code excerpt describing it in one of many programming languages. We tried to compile a wide selection of programming languages - from generally acknowledged staples and utility languages in software development to newer alternatives and weird curiosities!
+
+                            p If you are a programmer, QA or student in IT that loves playing card games then code:deck is for you! code:deck is a standard playing card deck sporting a stylish modern design. Each individual card features a code excerpt describing it in one of many programming languages. We tried to compile a wide selection of programming languages - from generally acknowledged staples and utility languages in software development to newer alternatives and weird curiosities!
+
+
+            footer.col-xs-12.col-md-12.red-bg.white
+                h4.text-center
+                    p.text-center.small-padding
+                        | © 2014, Made with&nbsp;
+                        span.fa.fa-heart
+                        | &nbsp;by&nbsp;
+                        a(href="http://twitter.com/jheneknights" style="color: #2c3e50") Eugene Mutai
+
+            footer.col-xs-12.col-md-12.pale-grey-bg
+                h4.text-center.small-padding.text-muted
+                    | So much&nbsp;
+                    span.fa.fa-heart
+                    | &nbsp;from Nairobi.
 
 
         // App's dependencies(libraries) and business logics

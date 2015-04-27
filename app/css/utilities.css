@@ -1,0 +1,248 @@
+@import url(http://fonts.googleapis.com/css?family=Bevan);
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+/**
+ * CSS STYLING FILE
+ * Created by Eugene Mutai
+ * Date: 27/04/2015
+ * Time: 09:04
+ * Description: Custom CSS of the application
+ * @import url(http://fonts.googleapis.com/css?family=Raleway:300,400,500);
+ */
+html {
+  cursor: default;
+  font-family: 'Arvo', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+}
+body {
+  cursor: default;
+  font-family: 'Arvo', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  color: #3a3a3a;
+}
+.wf-active body {
+  font-family: 'Arvo', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.padding-top {
+  padding-top: 1.5em;
+}
+.require-margin {
+  margin-bottom: 50px;
+}
+.white {
+  color: #fefefe;
+}
+.black {
+  color: #000;
+}
+.red {
+  color: #da123a;
+}
+.orange {
+  color: #f39c12;
+}
+.green {
+  color: #2ecc71;
+}
+.yellow {
+  color: #ffde00;
+}
+.blue {
+  color: #27569c;
+}
+.white {
+  color: #fefefe;
+}
+.grey {
+  color: #bdc3c7;
+}
+.red-bg {
+  background: #da123a;
+}
+.orange-bg {
+  background: #f39c12;
+}
+.green-bg {
+  background: #2ecc71;
+}
+.yellow-bg {
+  background: #ffde00;
+}
+.blue-bg {
+  background: #27569c;
+}
+.white-bg {
+  background: #fefefe;
+}
+.grey-bg {
+  background: #bdc3c7;
+  color: #999999;
+}
+.pale-grey-bg {
+  background: #ededed;
+}
+.sliding-panel {
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  background-color: #000000;
+  box-shadow: 4px -4px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  margin-left: -150%;
+  min-height: 100%;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  z-index: 999;
+}
+.sliding-panel:target {
+  background-color: #B1E583;
+  margin-left: 0%;
+}
+.splash {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.app-page {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.overlay {
+  background: #000000;
+  display: none;
+  left: 0;
+  opacity: .7;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+.content {
+  margin: auto;
+  width: 90%;
+}
+.line {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+.line IMG {
+  height: 100%;
+}
+.space {
+  padding: 2% 0;
+}
+.space-lg {
+  padding: 5% 0;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.padding-xs {
+  padding: 0.2em;
+}
+.padding-sm {
+  padding: 0.45em;
+}
+.padding {
+  padding: 0.8em;
+}
+.no-padding {
+  padding: 0;
+}
+.margin {
+  margin: 2% 0;
+}
+.auto-margin {
+  margin: auto;
+}
+.no-margin {
+  margin: 0;
+}
+.faded {
+  opacity: 0.4;
+}
+.largetext {
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.clear {
+  clear: both;
+}
+.width-xs {
+  width: 100px;
+}
+.width-sm {
+  width: 200px;
+}
+.width-md {
+  width: 300px;
+}
+.width-lg {
+  width: 400px;
+}
+.width-responsive {
+  width: 100%;
+}
+.border-xs {
+  border-color: #ededed;
+  border-style: solid;
+  border-width: 1px;
+}
+.border-styled {
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 3px;
+}
+.curves {
+  border-radius: 5px;
+}
+.link {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+.invisible {
+  visibility: none;
+}
+.normal {
+  font-weight: normal;
+}
+.small-padding {
+  padding: 0.3em;
+}
+.error span {
+  color: #e74c3c;
+}
+.no-scroll {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.bold {
+  font-weight: bolder;
+}

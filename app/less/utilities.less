@@ -1,0 +1,324 @@
+// Color variables (appears count calculates by raw css)
+@color0: #fefefe; // Appears 3 times
+@color1: #f39c12; // Appears 2 times
+@color2: #ededed; // Appears 2 times
+@color3: #000000; // Appears 2 times
+@color4: #DA123A; // Appears 2 times
+@color5: #bdc3c7; // Appears 2 times
+@color6: #2ecc71; // Appears 2 times
+@color7: #27569c; // Appears 2 times
+@color8: #ffde00; // Appears 2 times
+// Width variables (appears count calculates by raw css)
+@width4: 100%; // Appears 4 times
+// Height variables (appears count calculates by raw css)
+@height0: 100%; // Appears 6 times
+
+@import url(http://fonts.googleapis.com/css?family=Bevan);
+// @import url(http://fonts.googleapis.com/css?family=Karla);
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+html {
+    cursor: default;
+    font-family: 'Arvo', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+body {
+    cursor: default;
+    font-family: 'Arvo', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+    color: #3a3a3a
+}
+
+.wf-active {
+    body {
+        font-family: 'Arvo', sans-serif;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.padding-top {
+    padding-top: 1.5em;
+}
+
+.require-margin {
+    margin-bottom: 50px;
+}
+
+.white{
+    color: @color0;
+}
+
+.black{
+    color: #000;
+}
+
+.red {
+    color: @color4;
+}
+
+.orange {
+    color: @color1;
+}
+
+.green {
+    color: @color6;
+}
+
+.yellow {
+    color: @color8;
+}
+
+.blue {
+    color: @color7;
+}
+
+.white {
+    color: @color0;
+}
+
+.grey {
+    color: @color5;
+}
+
+.red-bg {
+    background: @color4;
+}
+
+.orange-bg {
+    background: @color1;
+}
+
+.green-bg {
+    background: @color6;
+}
+
+.yellow-bg {
+    background: @color8;
+}
+
+.blue-bg {
+    background: @color7;
+}
+
+.white-bg {
+    background: @color0;
+    // border-radius: 50%;
+    // border: 1px solid @color0;
+    // vertical-align: middle;
+}
+
+.grey-bg {
+    background: @color5;
+    color: #999999;
+}
+
+.pale-grey-bg {
+    background: @color2;
+}
+
+.sliding-panel {
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    background-color: @color3;
+    box-shadow: 4px -4px 4px rgba(0, 0, 0, 0.2);
+    left: 0;
+    margin-left: -150%;
+    min-height: @height0;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    transition: all .4s ease-in-out;
+    width: @width4;
+    z-index: 999;
+    &:target {
+        background-color: #B1E583;
+        margin-left: 0%;
+    }
+}
+
+.splash {
+    height: @height0;
+    margin: 0;
+    overflow: hidden;
+    width: @width4;
+}
+
+.app-page {
+    height: @height0;
+    margin: 0;
+    overflow: hidden;
+    width: @width4;
+}
+
+.overlay {
+    background: @color3;
+    display: none;
+    left: 0;
+    opacity: .7;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+.content {
+    margin: auto;
+    width: 90%;
+}
+
+.line {
+    height: @height0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    IMG {
+        height: @height0;
+    }
+}
+
+.space {
+    padding: 2% 0;
+}
+
+.space-lg {
+    padding: 5% 0;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.padding-xs {
+    padding: 0.2em;
+}
+
+.padding-sm {
+    padding: 0.45em;
+}
+
+.padding {
+    padding: 0.8em;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.margin {
+    margin: 2% 0;
+}
+
+.auto-margin {
+    margin: auto;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.faded {
+    opacity: 0.4;
+}
+
+.largetext {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    text-transform: uppercase;
+}
+
+.clear {
+    clear: both;
+}
+
+.width-xs {
+    width: 100px;
+}
+
+.width-sm {
+    width: 200px;
+}
+
+.width-md {
+    width: 300px;
+}
+
+.width-lg {
+    width: 400px;
+}
+
+.width-responsive {
+    width: @width4;
+}
+
+.border-xs {
+    border-color: @color2;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.border-styled {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.curves {
+    border-radius: 5px;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.invisible {
+    visibility: none;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.small-padding {
+    padding: 0.3em;
+}
+
+.error {
+    span {
+        color: #e74c3c;
+    }
+}
+
+.no-scroll {
+    height: @height0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bolder;
+}
