@@ -178,3 +178,5 @@ test/
 dist/
 bower_assets/
 *.html
+_site/
+.sass-cache/
