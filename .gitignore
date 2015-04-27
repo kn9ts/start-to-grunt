@@ -1,3 +1,8 @@
 _site
 .sass-cache
 .DS_Store
+test/
+html
+bower_assets/
+node_modules/
+app/
