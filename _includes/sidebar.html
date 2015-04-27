@@ -1,10 +1,10 @@
-<div class="col-xs-12 col-md-4">
+<div class="sidebar col-xs-12 col-md-4">
     <div class="affix-top">
         <h4 class="text-center">
         <ul>
-          <li><a href="javascript:;">What it does for you?</a></li>
-          <li><a href="javascript:;">How do I use it?</a></li>
-          <li><a href="javascript:;">Anything Left out.</a></li>
+            {% for page in site.pages %}
+            <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+            {% endfor %}
         </ul>
       </h4>
     </div>
