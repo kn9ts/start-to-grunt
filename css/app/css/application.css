@@ -1,0 +1,42 @@
+/**
+ * CSS STYLING FILE
+ * Created by Eugene Mutai
+ * Date: 27/04/2015
+ * Time: 09:04
+ * Description: Custom CSS of the application
+ * @import url(http://fonts.googleapis.com/css?family=Raleway:300,400,500);
+ */
+h1 {
+  font-family: 'Bevan', sans-serif;
+  letter-spacing: 5px;
+}
+.jumbotron a.btn {
+  margin: 0 1%;
+}
+.jumbotron a.btn i.fa {
+  padding-right: 5px;
+}
+.jumbotron a.btn:first-child {
+  margin: 0 0;
+}
+.sidebar ul li {
+  list-style-type: none;
+  list-style: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.sidebar ul li a {
+  color: #DA123A;
+  text-decoration: none;
+  padding: 5%;
+  display: block;
+}
+.sidebar ul li a:hover {
+  background: #DA123A;
+  color: white;
+  text-decoration: none;
+}
+.content,
+.content-fluid {
+  font-size: 1.5em !important;
+}
