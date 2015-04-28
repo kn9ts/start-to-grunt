@@ -40,7 +40,8 @@ $ npm install
 {% endhighlight %}
 
 __To install default project front-end assets/libraries eg. bootstrap, jQuery...__
-__NOTE:__ This downloads CSS and JavaScript libraries that usually default in most projects nowdays. They are downloaded into the *__bower_assets__* folder that can be referenced in the HTML you are editting as you would have with any CSS and JavaScript files in your project, only that this way we give your application a good structure and files seperation.
+
+> __NOTE:__ This downloads CSS and JavaScript libraries that usually default in most projects nowdays. They are downloaded into the *__bower_assets__* folder that can be referenced in the HTML you are editting as you would have with any CSS and JavaScript files in your project, only that this way we give your application a good structure and files seperation.
 
 {% highlight bash %}
 $ bower install
