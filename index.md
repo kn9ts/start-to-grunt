@@ -17,6 +17,7 @@ Secondaries(click for further information):
 * [bower](http://bower.io)
 
 ## Getting Started
+
 Once you have NodeJS installed, run_(type/copy paste int the command line window and press ENTER)_:
 
 __To download the boilerplate__
@@ -65,7 +66,8 @@ $ grunt
 
 This will create a __test__ and __dist__ folder with a test and distribution application version in their respective folders.
 
-#### Live Reload – Take Productivity to the Next Level
+### Live Reload – Take Productivity to the Next Level
+
 [Read Article](https://blog.openshift.com/day-7-gruntjs-livereload-take-productivity-to-the-next-level/) To learn more about Live-Reload
 
 One of the features of the __GruntJS watch plugin__ is that it can automatically reload changes. It is very helpful if we are making markup, style and javascript changes and want to get instant feedback without pressing the browser refresh button.
@@ -86,13 +88,16 @@ $ grunt serve:dist
 
 
 ### Yes! Just with boring old HTML (duuuuh!)
+
 Yes, you can use the normal/old html way of writing markup. Just rename 'file_name' variable on line 63 to the name of the file you are working on. Do not add html or any extension tag whatsoever.
 
 {% highlight javascript %}
 file_name: 'myfilename', //eg for myfilename.html
 {% endhighlight %}
 
-### Though you could have the new girl in town: Jade Support
+### Jade Support
+#### The new girl in town
+
 But you should __STOP__ WRITTING TIRESOME HTML. You do get tired opening and closing tags, dont you?! Jade fastens front-end developement by at least 5 times. Try [Jade](http://jade-lang.com) today.
 
 It is supported off the box. No need to configure anything. Start writing JADE today. Chuck your phone and come with up a _'am leaving you'_ message for HTML.
