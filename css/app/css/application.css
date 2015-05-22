@@ -21,8 +21,8 @@ h5. h6 {
     text-decoration: underline;
 }
 
-.header .jumbotron{
-    background: #da123a url("../images/black_knight.png") no-repeat;
+.header .jumbotron {
+    background: #da123a url("../images/blue_knights.png") no-repeat;
     background-position: 90% 0;
     background-size: 40% auto;
 }
