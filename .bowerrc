@@ -1,5 +1,5 @@
 {
-  "directory": "bower_assets",
+  "directory": "app/third_party",
   "analytics": false,
   "timeout": 120000,
   "color": true

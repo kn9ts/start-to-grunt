@@ -213,7 +213,7 @@ module.exports = function(grunt) {
                     }],
                 },
                 // read from source <%= app.related_html_file %>
-                src: 'html/<%= app.related_html_file %>',
+                src: 'app/<%= app.related_html_file %>',
                 // update the dist/<%= app.related_html_file %> (the src <%= app.related_html_file %> is copied there)
                 dest: 'test/<%= app.related_html_file %>'
             },
@@ -240,7 +240,7 @@ module.exports = function(grunt) {
                         html: '<script src="js/app.all.min.js"></script>'
                     }
                 },
-                src: 'html/<%= app.related_html_file %>',
+                src: 'app/<%= app.related_html_file %>',
                 dest: 'dist/<%= app.related_html_file %>'
             }
         },
@@ -555,7 +555,7 @@ module.exports = function(grunt) {
         'jshint:gruntfile',
         'clean', // clean all the files and folders [.tmp, dist and test]
         'jade', // IMPORTANT: uncomment this if you are using jade to write your html files
-        'copy:app_html_to_root',
+        // 'copy:app_html_to_root',
         // 'less:for_app'
     ]);
 
