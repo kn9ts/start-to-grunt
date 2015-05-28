@@ -1,17 +1,17 @@
-@import url(http://fonts.googleapis.com/css?family=Bevan);
-@import url(http://fonts.googleapis.com/css?family=Arvo);
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Subrayada:700);
+@import url(http://fonts.googleapis.com/css?family=Numans);
 /**
  * CSS STYLING FILE
  * Created by Eugene Mutai
  * Date: 27/04/2015
  * Time: 09:04
  * Description: Custom CSS of the application
- * @import url(http://fonts.googleapis.com/css?family=Arvo:300,400,500);
+ * @import url(http://fonts.googleapis.com/css?family=Numans:300,400,500);
  */
 
 html {
     cursor: default;
-    font-family: 'Arvo', sans-serif;
+    font-family: 'Numans', sans-serif;
     margin: 0;
     overflow-x: hidden;
     padding: 0;
@@ -19,7 +19,7 @@ html {
 
 body {
     cursor: default;
-    font-family: 'Arvo', sans-serif;
+    font-family: 'Numans', sans-serif;
     margin: 0;
     overflow-x: hidden;
     padding: 0;
@@ -27,7 +27,7 @@ body {
 }
 
 .wf-active body {
-    font-family: 'Arvo', sans-serif;
+    font-family: 'Numans', sans-serif;
 }
 
 a {
@@ -308,4 +308,22 @@ a {
 
 .bold {
     font-weight: bolder;
+}
+
+code,
+pre,
+button,
+a.btn {
+    border-radius: 0;
+}
+
+button,
+a.btn {
+    font-size: 1.25em
+}
+
+blockquote {
+    color: #95a5a6;
+    background: #ecf0f1;
+    border-left-color: #e74c3c
 }

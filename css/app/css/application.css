@@ -8,17 +8,32 @@
  */
 
 h1 {
-    font-family: 'Bevan', sans-serif;
+    font-size: 7em !important;
+    font-family: 'Montserrat Subrayada', sans-serif;
     letter-spacing: 5px;
+}
+
+h1 + h2 {
+    font-size: 3em;
+}
+
+.content h2 {
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 h1,
 h2,
 h3,
 h4,
-h5. h6 {
+h5,
+h6 {
     font-weight: bolder;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
+}
+
+pre {
+    margin: 5% 0;
 }
 
 .header .jumbotron {
@@ -43,7 +58,8 @@ h5. h6 {
     list-style-type: none;
     list-style: none;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-family: 'Montserrat Subrayada', sans-serif;
 }
 
 .sidebar ul li a {
@@ -64,6 +80,10 @@ h5. h6 {
     font-size: 1.5em !important;
 }
 
-pre {
-    margin: 5% 0;
+.content h2,
+.content h3,
+.content h4 ,
+footer{
+    font-family: 'Montserrat Subrayada', sans-serif;
+    /*letter-spacing: 2px;*/
 }

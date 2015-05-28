@@ -4,7 +4,7 @@ title: What does it do for me?
 permalink: /huh/
 ---
 
-#### __HTML5__ starter kit for creating HTML5 applications and User Interfaces (UIs), intergrated with __GRUNTJS__ for fast, clean and optimised web app creation.
+## __HTML5__ starter kit for creating HTML5 applications and User Interfaces (UIs), intergrated with __GRUNTJS__ for fast, clean and optimised web app creation.
 
 It has all the neccessary requirements to get anyone started in creating apps fast and easy.
 

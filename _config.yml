@@ -4,10 +4,10 @@ email: eugenemutai@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
    HTML5 starter kit for creating HTML5 application and user interfaces, with GRUNTJS integration for fast, clean and optimized app creation.
 baseurl: "/knightstart" # the subpath of your site, e.g. /blog/
-url: "http://jheneknights.github.io/knightstart/" # the base hostname & protocol for your site
+url: "http://kn9ts.github.io/knightstart/" # the base hostname & protocol for your site
 
-twitter_username: jheneknights
-github_username:  jheneknights
+twitter_username: kn9ts
+github_username:  kn9ts
 
 # Build settings
 markdown: kramdown
@@ -15,6 +15,6 @@ highlighter: pygments
 github: [Repository metadata]
 
 # site stuff
-tar_url: "https://github.com/jheneknights/knightstart/tarball/master"
-zip_url: "https://github.com/jheneknights/knightstart/zipball/master"
-project_url: "https://github.com/jheneknights/knightstart"
+tar_url: "https://github.com/kn9ts/knightstart/tarball/master"
+zip_url: "https://github.com/kn9ts/knightstart/zipball/master"
+project_url: "https://github.com/kn9ts/knightstart"
