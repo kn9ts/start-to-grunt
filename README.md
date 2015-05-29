@@ -183,7 +183,7 @@ __cordova create command__*
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-__Version: 0.2.0__
+__Version: 1.2.0__
 
 ## License
 Copyright (c) 2014 __Eugene Mutai__
