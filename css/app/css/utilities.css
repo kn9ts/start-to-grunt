@@ -309,21 +309,3 @@ a {
 .bold {
     font-weight: bolder;
 }
-
-code,
-pre,
-button,
-a.btn {
-    border-radius: 0;
-}
-
-button,
-a.btn {
-    font-size: 1.25em
-}
-
-blockquote {
-    color: #95a5a6;
-    background: #ecf0f1;
-    border-left-color: #e74c3c
-}

@@ -36,10 +36,46 @@ pre {
     margin: 5% 0;
 }
 
-.header .jumbotron {
-    background: #da123a url("../images/blue_knights.png") no-repeat;
-    background-position: 90% 0;
-    background-size: 40% auto;
+code,
+pre,
+button,
+a.btn {
+    border-radius: 0;
+}
+
+button,
+a.btn {
+    font-size: 1.25em
+}
+
+blockquote {
+    color: #95a5a6;
+    background: #ecf0f1;
+    border-left-color: #e74c3c
+}
+
+.header{
+    background: #da123a;
+    background: -moz-linear-gradient(-45deg, #da123a 0%, #f7181c 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #da123a), color-stop(100%, #f7181c));
+    background: -webkit-linear-gradient(-45deg, #da123a 0%, #f7181c 100%);
+    background: -o-linear-gradient(-45deg, #da123a 0%, #f7181c 100%);
+    background: -ms-linear-gradient(-45deg, #da123a 0%, #f7181c 100%);
+    background: linear-gradient(135deg, #da123a 0%, #f7181c 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#da123a', endColorstr='#f7181c', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    /*background-color: -webkit-linear-gradient(45deg, #da123a 10%, #d14233 90%);*/
+    /*background-color: linear-gradient(45deg, #da123a 10%, #d14233 90%);*/
+    /*overflow: hidden;*/
+    /*background-color: #da123a;*/
+}
+
+.header > .jumbotron {
+    background: url("../images/blue_knights.png") no-repeat;
+    background-position: 100% 0;
+    background-size: 38% auto;
+    padding-bottom: 7.5%;
+    margin-bottom: 0
 }
 
 .jumbotron a.btn {
@@ -82,8 +118,8 @@ pre {
 
 .content h2,
 .content h3,
-.content h4 ,
-footer{
+.content h4,
+footer {
     font-family: 'Montserrat Subrayada', sans-serif;
     /*letter-spacing: 2px;*/
 }
