@@ -71,9 +71,9 @@ blockquote {
 }
 
 .header > .jumbotron {
-    background: url("../images/blue_knights.png") no-repeat;
-    background-position: 100% 0;
-    background-size: 38% auto;
+    background: url("../images/html5logos/black.png") no-repeat;
+    background-position: 140% 60%;
+    background-size: 60% auto;
     padding-bottom: 7.5%;
     margin-bottom: 0
 }
@@ -121,5 +121,5 @@ blockquote {
 .content h4,
 footer {
     font-family: 'Montserrat Subrayada', sans-serif;
-    /*letter-spacing: 2px;*/
+    letter-spacing: 2px;
 }
