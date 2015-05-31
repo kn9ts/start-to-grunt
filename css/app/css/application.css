@@ -90,6 +90,10 @@ blockquote {
     margin: 0 0;
 }
 
+.container .space + a{
+    margin-left: 0
+}
+
 .sidebar ul li {
     list-style-type: none;
     list-style: none;
