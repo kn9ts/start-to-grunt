@@ -1,0 +1,49 @@
+// App's dependencies(libraries) and business logics
+application-engine(description="all the application's JS files fall here")
+
+    //- Base engine, for Phonegap app, uncomment this if you are using phonegap
+    //- script(type="text/javascript" src="cordova.js")
+
+    // jQuery library
+    script(type="text/javascript" src="../app/third_party/jquery/dist/jquery.min.js")
+
+    //- Angularjs MVC, MVVM framework
+    script(type="text/javascript" src="../app/third_party/angularjs/angular.min.js")
+    //- script(type="text/javascript" src="../app/third_party/angularjs/angular-resource.min.js")
+
+    //- Knockout MVVM framework
+    //- script(type="text/javascript" src="js/libraries/knockout-3.0.0.js")
+    //- script(type="text/javascript" src="js/plugins/knockout.validation.js")
+
+    // For cookies and touch support
+    script(type="text/javascript" src="../app/third_party/jquery-cookie/jquery.cookie.js")
+    script(type="text/javascript" src="../app/third_party/hammerjs/hammer.min.js")
+
+    // Time management
+    script(type="text/javascript" src="../app/third_party/moment/min/moment.min.js")
+
+    // Your app functions script
+    script(type="text/javascript" src="../app/js/application.js")
+    script.
+        //on document ready, as soon as it begins to load
+        app.initialize();
+
+        // Google Analytics: change UA-XXXXX-X to be your site's ID.
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+            function() {
+            (b[l].q = b[l].q || []).push(arguments)
+            });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+
+    //- Get all files to be used with gruntjs
+    //- script(src='grunt/gruntconfig_assets.js')
+            //- script(src='http://localhost:35729/livereload.js')

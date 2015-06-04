@@ -1,0 +1,36 @@
+//
+    /**
+     * Created by Eugene Mutai
+     * Twitter: http://twitter.com/jheneknights
+     * Email: eugenemutai@gmail.com
+     * Date: 06/04/14 (Updated on 18/11/14)
+     * Time: 12:45 PM
+     * Description: Simple HTML5 application template to get you started.
+     * ------ "How does somebody know what they want if they haven’t even seen it?" - Steve Jobs. ------
+     *        _ _                       _  __      _       _     _
+     *       (_) |__   ___ _ __   ___  | |/ /_ __ (_) __ _| |__ | |_ ___
+     *       | | '_ \ / _ \ '_ \ / _ \ | ' /| '_ \| |/ _` | '_ \| __/ __|
+     *       | | | | |  __/ | | |  __/ | . \| | | | | (_| | | | | |_\__ \
+     *      _/ |_| |_|\___|_| |_|\___| |_|\_\_| |_|_|\__, |_| |_|\__|___/
+     *     |__/                                      |___/
+     */
+
+doctype html
+html(lang="en")
+
+    include ../includes/header
+
+    body
+        // if lt IE 10
+            p.browsehappy
+                | You are using an
+            strong outdated
+                | browser. Please
+            a(href='http://browsehappy.com/') upgrade your browser
+                | to improve your experience.
+
+        block content
+
+        include ../includes/footer
+
+        include ../includes/scripts
