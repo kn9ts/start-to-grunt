@@ -1,10 +1,10 @@
-# KnightStart
+# START
 #### __HTML5__ starter kit for creating HTML5 applications and User Interfaces (UIs), intergrated with __GRUNTJS__ for fast, clean and optimised web app creation.
 
 It has all the neccessary requirements to get anyone started in creating apps fast and easy.
 
 ## What does it do for me?
-__KnightStart__ basically does the following:
+__START__ basically does the following:
 
 1. compiles your scripts, templates, styles (both transpilation and precompilation is taken care of here)
 2. lints them (checks for any syntax error)
@@ -83,7 +83,7 @@ __Note: Each of the '$' (dollar) sign denotes a step (so steps 4 in total)__
 
 This will install all the things you need for running the grunt-tasks automatically.
 
-> *__Note:__ As stated prior. You need to have a running node.js and ruby along with npm. Please install this before setting up KnightStart in your project's directory. Ruby comes default in most systems nowdays so I believe you do have that already.*
+> *__Note:__ As stated prior. You need to have a running node.js and ruby along with npm. Please install this before setting up START in your project's directory. Ruby comes default in most systems nowdays so I believe you do have that already.*
 
 ### Finally Build and launch
 
