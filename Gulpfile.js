@@ -4,6 +4,7 @@ var gulp = require('gulp');
 // Plugins are referenced here
 var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
+var cache = require('gulp-cache');
 var gutil = require('gulp-util');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
@@ -12,27 +13,27 @@ var minifycss = require('gulp-minify-css');
 
 // Task Task
 /** The styles task looks for any .scss files in the app/styles directory of your project  
-* && preprocess them using sass and then saves the minified versions in the app/styles dir
+* && preprocess them using sass and then saves the minified versions in the app/dist/styles dir
 **/
-
+//Run `gulp styles` to make gulp run the styles task and output the processed css
 gulp.task('styles', function(){
   gulp.src(['app/styles/**/*.scss'])
     .pipe(sass())
     .on('error', gutil.log)
     .pipe(autoprefixer('last 2 versions'))
     .on('error', gutil.log)
-    .pipe(gulp.dest('app/styles/'))
+    .pipe(gulp.dest('dist/styles/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('app/styles/'))
+    .pipe(gulp.dest('dist/styles/'))
 });
 
-//Run `gulp styles` to make gulp run the styles task and output the processed css
 
 
-// Images optimization & compiling
+// Image Task
 gulp.task('images', function(){
-	...
+  gulp.src('src/images/**/*')
+    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe(gulp.dest('dist/images/'));
 });
-    
     
