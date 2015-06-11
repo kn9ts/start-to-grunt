@@ -10,12 +10,22 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var minifycss = require('gulp-minify-css');
 
-// Compile CSS
+// CSS Task
 gulp.task('styles', function(){
-	...
+  gulp.src(['src/styles/**/*.scss'])
+    .pipe(sass())
+    .on('error', gutil.log)
+    .pipe(autoprefixer('last 2 versions'))
+    .on('error', gutil.log)
+    .pipe(gulp.dest('dist/styles/'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(minifycss())
+    .pipe(gulp.dest('dist/styles/'))
 });
 
 // Images optimization
 gulp.task('images', function(){
 	...
 });
+    
+    
