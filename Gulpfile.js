@@ -10,20 +10,27 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var minifycss = require('gulp-minify-css');
 
-// CSS Task
+// Task Task
+/** The styles task looks for any .scss files in the app/styles directory of your project  
+* && preprocess them using sass and then saves the minified versions in the app/styles dir
+**/
+
 gulp.task('styles', function(){
-  gulp.src(['src/styles/**/*.scss'])
+  gulp.src(['app/styles/**/*.scss'])
     .pipe(sass())
     .on('error', gutil.log)
     .pipe(autoprefixer('last 2 versions'))
     .on('error', gutil.log)
-    .pipe(gulp.dest('dist/styles/'))
+    .pipe(gulp.dest('app/styles/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/styles/'))
+    .pipe(gulp.dest('app/styles/'))
 });
 
-// Images optimization
+//Run `gulp styles` to make gulp run the styles task and output the processed css
+
+
+// Images optimization & compiling
 gulp.task('images', function(){
 	...
 });
