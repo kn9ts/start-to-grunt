@@ -9,6 +9,7 @@ permalink: /structure/
 This is the structure of the Boiler plate, it will give you teh guide in how things are ordered
 so as to work properly and effeciently
 
+```
  1 .
  2 ├── app
  3 │   ├── css
@@ -58,3 +59,4 @@ so as to work properly and effeciently
 47 └── package.json
 48
 49 13 directories, 33 files
+```
