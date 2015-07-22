@@ -3,6 +3,8 @@
 
 It has all the neccessary requirements to get anyone started in creating apps fast and easy.
 
+To see the layout structure of the boilerplate, see [Structure.md](http://github.com/kn9ts/start/STRUCTURE.md)
+
 ## What does it do for me?
 __START__ basically does the following:
 
