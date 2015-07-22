@@ -1,3 +1,9 @@
+---
+layout: page
+title: Structure of the boilerplate.
+permalink: /structure/
+---
+
 ### Scaffolded Structure of START boilerplate
 
 This is the structure of the Boiler plate, it will give you teh guide in how things are ordered
