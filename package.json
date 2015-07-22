@@ -1,8 +1,8 @@
 {
-    "name": "GRUNT-START",
+    "name": "start-to-grunt",
     "description": "One step ahead on having the best project ever with this starter kit.",
     "version": "0.1.0",
-    "homepage": "https://github.com/kn9ts/grunt-start",
+    "homepage": "https://github.com/kn9ts/start-to-grunt",
     "author": {
         "name": "Eugene Mutai",
         "email": [
@@ -12,14 +12,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/kn9ts/grunt-start.git"
+        "url": "git://github.com/kn9ts/start-to-grunt.git"
     },
     "bugs": {
-        "url": "https://github.com/kn9ts/grunt-start/issues"
+        "url": "https://github.com/kn9ts/start-to-grunt/issues"
     },
     "license": {
         "type": "MIT",
-        "url": "https://github.com/kn9ts/grunt-start/blob/master/LICENSE-MIT"
+        "url": "https://github.com/kn9ts/start-to-grunt/blob/master/LICENSE-MIT"
     },
     "main": "lib/knights",
     "engines": {
