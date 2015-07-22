@@ -4,8 +4,8 @@ title: START - HTML5 Gruntjs Boilerplate
 email: eugenemutai@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
    HTML5 starter kit for creating HTML5 application and user interfaces, with GRUNTJS integration for fast, clean and optimized app creation.
-baseurl: "/start" # the subpath of your site, e.g. /blog/
-url: "http://kn9ts.github.io/start/" # the base hostname & protocol for your site
+baseurl: "/start-to-grunt" # the subpath of your site, e.g. /blog/
+url: "http://kn9ts.github.io/start-to-grunt/" # the base hostname & protocol for your site
 
 twitter_username: kn9ts
 github_username:  kn9ts
@@ -18,4 +18,4 @@ github: [Repository metadata]
 # site stuff
 tar_url: "https://github.com/kn9ts/start/tarball/master"
 zip_url: "https://github.com/kn9ts/start/zipball/master"
-project_url: "https://github.com/kn9ts/start"
+project_url: "https://github.com/kn9ts/start-to-grunt"
