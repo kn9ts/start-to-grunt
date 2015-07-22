@@ -16,6 +16,6 @@ highlighter: pygments
 github: [Repository metadata]
 
 # site stuff
-tar_url: "https://github.com/kn9ts/start/tarball/master"
-zip_url: "https://github.com/kn9ts/start/zipball/master"
+tar_url: "https://github.com/kn9ts/start-to-grunt/tarball/master"
+zip_url: "https://github.com/kn9ts/start-to-grunt/zipball/master"
 project_url: "https://github.com/kn9ts/start-to-grunt"
