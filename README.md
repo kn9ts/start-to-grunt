@@ -19,20 +19,6 @@ __START__ basically does the following:
 9. monitors/watches your files for changes and updates realtime wherever relevant, reloads to reflects the changes to the browser
 10. create a test and distribution/final versions of your app or UI without compromising the original code
 
-<!--
-
-1. checks for any syntax error and prints it out to the command line
-2. reports errors in the command line/terminal as you code & save.
-3. lints them notifying you about errors via console and system notifications
-4. compiles your scripts, templates, styles
-5. wraps/concatenates scripts and styles, generates source maps for concatenated files (reduce HTTP requests made)
-6. shrinks the output by minifying code(css and scripts) and optimizing images
-7. copies assets and static files to the respective required project directory
-8. monitors/watches your files for changes and updates realtime wherever relevant, reflects the changes to the browser immediately (linting & checking for error before presentation)
-9. create a test and distribution/final versions of your app or UI without compromising the original code
-
--->
-
 > Concatinates all __CSS__ into app.full.css and __JS__ into app.full.js or app.full.min.js after minification. And replacing all CSS and JS tags in your html file with one tag having the stated as thier sources. In __DISTRIBUTION__ version only though.
 
 
@@ -54,7 +40,7 @@ Once you have NodeJS installed, run_(type/copy paste int the command line window
 
 __To download the boilerplate__
 ```bash
-$ git clone https://github.com/jheneknights/knightstart name_of_your_project
+$ git clone https://github.com/kn9ts/start-to-grunt name_of_your_project
 ```
 
 After cloning/copying the boilerplate, please get into your project's directory/folder
@@ -128,33 +114,6 @@ Yes, you can use the normal/old html way of writing markup. Just rename 'file_na
 But you should __STOP__ WRITTING TIRESOME HTML. You do get tired opening and closing tags, dont you?! Jade fastens front-end developement by at least 5 times. Try [Jade](http://jade-lang.com) today.
 
 It is supported off the box. No need to configure anything. Start writing JADE today. Chuck your phone and come with up a _'am leaving you'_ message for HTML.
-
-
-### Intergrated Tools - Deprecated in favour of [Bower](http://bower.io):
-* Javascript Libraries for any minimal app requirements
-	* JQuery *(Aaaarrhh!! Famous javascript library that makes DOM manipluations a breeze)*
-	* Zepto -- *for those that prefer it over jQuery*
-	* QuoJS -- *__JQuery__ like framework that supports touch events*
-	* KnockoutJS
-	* MomentJS
-	* Handlebars
-	* Underscore
-	* jQuery plugins
-		* mCustomScrollbar -- for scrolling
-		* cookies -- cookie support
-		* hammerJS -- for touch support *best used with jQuery*
-		* easing -- enhance animations
-
-* And many more...
-
-Check out the *JS* folder where I have sorted them out into four categories:
-
-* Libraries
-* Plugins
-* Scrolling
-* More *(miscellenious libraries that come in handy)*
-
-> __Note:__ Will remove folder completely on next commit, but will create the version which is inclusive of this libraries/components
 
 ## Browser support
 * Chrome
