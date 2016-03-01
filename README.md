@@ -1,9 +1,11 @@
 # START
 #### __HTML5__ starter kit for creating HTML5 applications and User Interfaces (UIs), intergrated with __GRUNTJS__ for fast, clean and optimised web app creation.
 
+Prefer __GULP__: [We've got you covered here.](http://github.com/kn9ts/start-to-gulp)
+
 It has all the neccessary requirements to get anyone started in creating apps fast and easy.
 
-To see the layout structure of the boilerplate, see [Structure.md](http://github.com/kn9ts/start/STRUCTURE.md)
+To see the layout structure of the boilerplate, see [Structure.md](http://github.com/kn9ts/start-to-grunt/STRUCTURE.md)
 
 ## What does it do for me?
 __START__ basically does the following:
