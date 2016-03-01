@@ -1,7 +1,7 @@
 /**
  *
  * @Author - Eugene Mutai
- * @Twitter - JheneKnights
+ * @Twitter - kn9ts
  * @Email - eugenemutai@gmail.com
  *
  * Date: 06/04/14
@@ -13,13 +13,6 @@
 // Being a frontend developer
 // if you haven’t yet added Grunt.js to your workflow,
 // then you are seriously missing something.
-
-//      _ _                       _  __      _       _     _
-//     | | |__   ___ _ __   ___  | |/ /_ __ (_) __ _| |__ | |_ ___
-//  _  | | '_ \ / _ \ '_ \ / _ \ | ' /| '_ \| |/ _` | '_ \| __/ __|
-// | |_| | | | |  __/ | | |  __/ | . \| | | | | (_| | | | | |_\__ \
-//  \___/|_| |_|\___|_| |_|\___| |_|\_\_| |_|_|\__, |_| |_|\__|___/
-//                                             |___/
 
 'use strict';
 
@@ -37,7 +30,6 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     // load all grunt tasks matching the `grunt-*` pattern
-    require('load-grunt-tasks')(grunt);
     // This replaces the tiresome task of including all grunt-plugins as you would have done below
     // These plugins provide necessary tasks. -- loading grunt plugins
     // Equivalent to:
@@ -54,6 +46,7 @@ module.exports = function(grunt) {
     // grunt.loadNpmTasks('grunt-contrib-nodeunit');
     // grunt.loadNpmTasks('grunt-contrib-jshint');
     // grunt.loadNpmTasks('grunt-contrib-watch');
+    require('load-grunt-tasks')(grunt);
 
     // Project configuration.
     grunt.initConfig({
